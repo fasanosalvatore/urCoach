@@ -1,4 +1,4 @@
-package it.unisa.di.urcoach.Model;
+package it.unisa.di.urcoach.Model.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

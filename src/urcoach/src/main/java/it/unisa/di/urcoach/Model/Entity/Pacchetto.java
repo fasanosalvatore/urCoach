@@ -1,4 +1,4 @@
-package it.unisa.di.urcoach.Model;
+package it.unisa.di.urcoach.Model.Entity;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
