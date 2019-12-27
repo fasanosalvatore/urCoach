@@ -1,9 +1,8 @@
 package it.unisa.di.urcoach.Model.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Fattura {
@@ -12,16 +11,22 @@ public class Fattura {
     private int numeroFattura;
     private float costo;
     private int scontoCoupon;
-    private String emailAtleta;
     private Date data;
+
+    @OneToMany(mappedBy = "fattura")
+    private List<Acquisto> acquisti;
+
+    @ManyToOne
+    @JoinColumn
+    private Atleta atleta;
 
     public Fattura() {
     }
 
-    public Fattura(float costo, int scontoCoupon, String emailAtleta, Date data) {
+    public Fattura(float costo, int scontoCoupon, Date data, Atleta atleta) {
         this.costo = costo;
         this.scontoCoupon = scontoCoupon;
-        this.emailAtleta = emailAtleta;
+        this.atleta = atleta;
         this.data = data;
     }
 
@@ -49,12 +54,12 @@ public class Fattura {
         this.scontoCoupon = scontoCoupon;
     }
 
-    public String getEmailAtleta() {
-        return emailAtleta;
+    public Atleta getAtleta() {
+        return atleta;
     }
 
-    public void setEmailAtleta(String emailAtleta) {
-        this.emailAtleta = emailAtleta;
+    public void setAtleta(Atleta atleta) {
+        this.atleta = atleta;
     }
 
     public Date getData() {

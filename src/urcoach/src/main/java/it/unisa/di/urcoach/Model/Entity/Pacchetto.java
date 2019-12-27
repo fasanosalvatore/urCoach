@@ -2,9 +2,7 @@ package it.unisa.di.urcoach.Model.Entity;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pacchetto {
@@ -14,15 +12,17 @@ public class Pacchetto {
     private String nome;
     private float costo;
     private int durata;
-    private String personalTrainer;
     private String foto;
     private String categoria;
     private String descrizione;
+    @ManyToOne
+    @JoinColumn
+    private PersonalTrainer personalTrainer;
 
     public Pacchetto() {
     }
 
-    public Pacchetto(String nome, float costo, int durata, String personalTrainer, String foto, String categoria, String descrizione) {
+    public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, String categoria, String descrizione) {
         this.nome = nome;
         this.costo = costo;
         this.durata = durata;
@@ -64,11 +64,11 @@ public class Pacchetto {
         this.durata = durata;
     }
 
-    public String getPersonalTrainer() {
+    public PersonalTrainer getPersonalTrainer() {
         return personalTrainer;
     }
 
-    public void setPersonalTrainer(String personalTrainer) {
+    public void setPersonalTrainer(PersonalTrainer personalTrainer) {
         this.personalTrainer = personalTrainer;
     }
 

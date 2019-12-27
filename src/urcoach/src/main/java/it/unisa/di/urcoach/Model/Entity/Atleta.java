@@ -2,7 +2,9 @@ package it.unisa.di.urcoach.Model.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Atleta {
@@ -15,6 +17,8 @@ public class Atleta {
     private Date dataNascita;
     private String indirizzoFatturazione;
     private String password;
+    @OneToMany(mappedBy = "atleta")
+    private List<Fattura> fatture;
 
     public Atleta() {
     }

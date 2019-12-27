@@ -2,7 +2,9 @@ package it.unisa.di.urcoach.Model.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class PersonalTrainer {
@@ -16,6 +18,8 @@ public class PersonalTrainer {
     private String pIva;
     private String foto;
     private int verificato;
+    @OneToMany(mappedBy = "personalTrainer")
+    List<Pacchetto> pacchettiCreati;
 
     public PersonalTrainer() {
     }
