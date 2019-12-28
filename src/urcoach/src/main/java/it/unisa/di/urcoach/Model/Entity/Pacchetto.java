@@ -13,7 +13,9 @@ public class Pacchetto {
     private float costo;
     private int durata;
     private String foto;
-    private String categoria;
+    @ManyToOne
+    @JoinColumn
+    private Categoria categoria;
     private String descrizione;
     @ManyToOne
     @JoinColumn
@@ -22,7 +24,7 @@ public class Pacchetto {
     public Pacchetto() {
     }
 
-    public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, String categoria, String descrizione) {
+    public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, Categoria categoria, String descrizione) {
         this.nome = nome;
         this.costo = costo;
         this.durata = durata;
@@ -80,11 +82,11 @@ public class Pacchetto {
         this.foto = foto;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

@@ -2,8 +2,10 @@ package it.unisa.di.urcoach.Model.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Categorie")
 public class Categoria {
     @Id
     private String nome;

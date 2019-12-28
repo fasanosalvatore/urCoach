@@ -1,15 +1,15 @@
 package it.unisa.di.urcoach.Model.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "Atleti")
 public class Atleta {
 
     @Id
+    @Column(name = "email")
     private String email;
     private String nome;
     private String cognome;

@@ -8,17 +8,24 @@ import java.io.Serializable;
 
 @Embeddable
 public class AcquistoID implements Serializable {
-    @ManyToOne
-    @JoinColumn
-    private Fattura fattura;
+
+    private int numeroFattura;
     private int idPacchetto;
 
     public AcquistoID() {
     }
 
-    public AcquistoID(Fattura fattura, int idPacchetto) {
-        this.fattura = fattura;
+    public AcquistoID(int numeroFattura, int idPacchetto) {
+        this.numeroFattura = numeroFattura;
         this.idPacchetto = idPacchetto;
+    }
+
+    public int getNumeroFattura() {
+        return numeroFattura;
+    }
+
+    public void setNumeroFattura(int numeroFattura) {
+        this.numeroFattura = numeroFattura;
     }
 
     public int getIdPacchetto() {
@@ -36,14 +43,14 @@ public class AcquistoID implements Serializable {
 
         AcquistoID that = (AcquistoID) o;
 
-        if (fattura.getNumeroFattura() != that.fattura.getNumeroFattura()) return false;
+        if (numeroFattura != that.numeroFattura) return false;
         return idPacchetto == that.idPacchetto;
     }
 
     @Override
     public int hashCode() {
-        int result = fattura.hashCode();
-        result = 31 * result + fattura.hashCode();
+        int result = ((Integer) numeroFattura).hashCode();
+        result = 31 * result + ((Integer) idPacchetto).hashCode();
         return result;
     }
 }

@@ -1,20 +1,21 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
+@Table(name="Fatture")
 public class Fattura {
     @Id
     @GeneratedValue
+    @Column(name = "numeroFattura")
     private int numeroFattura;
     private float costo;
     private int scontoCoupon;
     private Date data;
-
-    @OneToMany(mappedBy = "fattura")
-    private List<Acquisto> acquisti;
 
     @ManyToOne
     @JoinColumn

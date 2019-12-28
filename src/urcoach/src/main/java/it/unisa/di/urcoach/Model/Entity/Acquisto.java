@@ -1,14 +1,24 @@
 package it.unisa.di.urcoach.Model.Entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@Table(name = "Acquisti")
 public class Acquisto {
     @EmbeddedId
     private AcquistoID acquistoId;
+
+    @ManyToOne
+    @MapsId("numeroFattura")
+    @JoinColumn
+    private Fattura fattura;
+
+    @ManyToOne
+    @MapsId("idPacchetto")
+    @JoinColumn
+    private Pacchetto pacchetto;
+
     private String nomePacchetto;
     private float costo;
 

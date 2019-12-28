@@ -3,10 +3,12 @@ package it.unisa.di.urcoach.Model.Entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "PersonalTrainers")
 public class PersonalTrainer {
     @Id
     private String email;
