@@ -1,5 +1,7 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import org.springframework.context.annotation.Scope;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;

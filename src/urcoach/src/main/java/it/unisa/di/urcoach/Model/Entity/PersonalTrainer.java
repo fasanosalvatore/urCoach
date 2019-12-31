@@ -1,5 +1,7 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import org.springframework.context.annotation.Scope;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;

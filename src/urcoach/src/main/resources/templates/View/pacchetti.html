@@ -1,0 +1,36 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/header :: header(pageTitle = 'Pacchetti')"></div>
+
+<div xmlns:th="http://www.thymeleaf.org" class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3 col-xs-12">
+            <h3>Applica Filtri</h3>
+            <form action="" class="filtri">
+                <h4>Personal Trainer</h4>
+                <div><input type="radio" name="nomeTrainer" value="undefined" onChange="$.fn.up()" checked> Tutti</div>
+                <div th:each="t : ${trainers}" ><input type="radio" name="nomeTrainer" th:value="${t.email}" th:text="' '+${t.nome}"></div>
+                <h4>Obiettivo</h4>
+                <div><input type="radio" name="obiettivo" value="undefined" onChange="$.fn.up()" checked> Tutti</div>
+                <div th:each="c : ${categorie}"><input type="radio" name="obiettivo" th:value="${c.nome}" th:text="' '+${c.nome}"></div>
+                <h4>Costo</h4>
+                <div><input type="radio" name="costo" value="undefined" checked> Tutti</div>
+                <div><input type="radio" name="costo" value="1000" > Minore di 1000€</div>
+                <div><input type="radio" name="costo" value="500"> Minore di 500€</div>
+                <div><input type="radio" name="costo" value="300"> Minore di 300€</div>
+                <div><input type="radio" name="costo" value="100"> Minore di 100€</div>
+                <div><input type="radio" name="costo" value="50"> Minore di 50€</div>
+            </form>
+        </aside>
+        <main class="col-md-9 col-xs-12" id="main">
+            <h3>Tutti i nostri pacchetti</h3>
+            <p>Seleziona il pacchetto più giusto per te. Ricorda che puoi utilizzare i filtri a sinistra se stai cercando
+                qualcosa di specifico</p>
+            <div id="here">
+
+
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer"></div>

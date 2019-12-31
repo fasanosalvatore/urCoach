@@ -1,5 +1,7 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import org.springframework.context.annotation.Scope;
+
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;

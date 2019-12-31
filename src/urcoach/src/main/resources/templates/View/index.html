@@ -1,0 +1,81 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/header :: header(pageTitle = 'Home')"></div>
+<section xmlns:th="http://www.thymeleaf.org" class="proof">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="heading-primary black">Perchè fidarti di noi?</h2>
+                <h3 class="heading-secondary">Storie di successo urCoach</h3>
+                <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer justo lacus,
+                    mattis
+                    sit amet condimentum sed, feugiat ac ex. Aliquam quis eros vel dolor luctus finibus at id diam.
+                    Nam
+                    diam
+                    turpis, placerat vel elementum accumsan, fermentum elementum ligula. Maecenas sagittis odio a
+                    sagittis
+                    ultricies. Pellentesque facilisis, tortor eget scelerisque dignissim, purus tellus feugiat urna,
+                    eu
+                    rutrum lacus sapien maximus nisl. Fusce gravida sapien sem, a accumsan eros suscipit et. In elit
+                    leo,
+                    mattis maximus velit sit amet, tincidunt dapibus justo. Vivamus lectus turpis, fermentum eget
+                    ligula
+                    sit
+                    amet, scelerisque porttitor risus. Suspendisse non nibh a ipsum ultrices consectetur. Vestibulum
+                    neque
+                    tellus, tempor eu libero id, facilisis dapibus tortor. Maecenas lorem lectus, lacinia eget ipsum
+                    ac,
+                    sodales accumsan risus. Integer iaculis sit amet sem eget sodales. Donec venenatis dui non dolor
+                    consectetur, id ornare lacus iaculis. Nunc enim elit, hendrerit et ex a, laoreet tincidunt
+                    dolor.
+                    Sed
+                    scelerisque felis cursus interdum pellentesque.</p>
+            </div>
+            <div class="col-md-4">
+                <img th:src="@{/img/header.jpg}" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="proof__grid">
+                <img th:src="@{/img/img1.jpg}" alt="">
+                <img th:src="@{/img/img2.jpg}" alt="">
+                <img th:src="@{/img/img3.jpg}" alt="">
+                <img th:src="@{/img/img4.jpg}" alt="">
+                <img th:src="@{/img/img5.jpg}" alt="">
+                <img th:src="@{/img/img6.jpg}" alt="">
+                <img th:src="@{/img/img7.jpg}" alt="">
+                <img th:src="@{/img/img8.jpg}" alt="">
+                <img th:src="@{/img/img9.jpg}" alt="">
+                <img th:src="@{/img/img10.jpg}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section xmlns:th="http://www.thymeleaf.org" class="trainer">
+    <div class="container-fluid">
+        <div>
+            <h2 class="heading-primary black">Pacchetti</h2>
+            <h3 class="heading-secondary">I pacchetti più richiesti</h3>
+        </div>
+        <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3" th:each="pacchetto: ${ultimiPacchetti}">
+                    <div class="card">
+                        <div class="card__img">
+                            <img th:src="@{/img/header.jpg}" alt="">
+                        </div>
+                        <div class="card__container">
+                            <h4 class="card__title" th:text="${pacchetto.nome}" />
+                            <ul class="card__tag">
+                                <li th:text="'Durata: ' + ${pacchetto.durata}" />
+                                <li th:text="'Obiettivo: ' + ${pacchetto.categoria.nome}" />
+                            </ul>
+                            <p class="paragraph">
+
+                            </p>
+                            <a th:href="@{/pacchetto(id=${pacchetto.idPacchetto})}" class="button" th:text="'Acquista ' + ${pacchetto.costo} + '€'" />
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <a href="#" class="button">Chi Siamo</a>
+    </div>
+</section>
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer"></div>

@@ -1,0 +1,132 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-2 col-sm-offset-1 col-sm-3 col-md-3">
+                    <h3 class="footer__title">Contattaci</h3>
+                    <ul>
+                        <li>UrCoach srls</li>
+                        <li>+44 345 678 903</li>
+                        <li>urcoach@mail.com</li>
+                        <li>P.IVA: 988118826262</li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <h3 class="footer__title">Servizio Clienti</h3>
+                    <ul>
+                        <li><a href="#">Contattaci</a></li>
+                        <li><a href="#">Ordini & Pagamenti</a></li>
+                        <li><a href="#">Garanzia & Refund</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <h3 class="footer__title">Informazioni</h3>
+                    <ul>
+                        <li><a href="#">Perchè scegliere urCoach?</a></li>
+                        <li><a href="#">Come funziona urCoach?</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Termini & Condizioni</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup" id="ricerca">
+        <a href="#header" class="popup__close" style="color: white">&times;</a>
+        <div class="popup__form">
+            <input type="text" name="ricerca" id="ricercaText" oninput="$.fn.ricerca()">
+        </div>
+        <div class="container-fluid">
+            <div id="here"></div>
+        </div>
+
+    </div>
+
+    <div class="popup" id="login">
+        <div class="popup__content" onload="document.login.usernameL.focus()">
+            <a href="#header" class="popup__close">&times;</a>
+            <form action="Login" method="post" class="popup__form" name="login">
+                <h3>Effettua il login</h3>
+                <label for="usernameL">Username</label>
+                <input type="text" name="usernameL" id="usernameL" onchange="checkEmail(this.value)"
+                       placeholder="email@gmail.com">
+                <label for="passL">Password</label>
+                <input type="password" name="passL" id="passL" onchange="checkPass(this.value)"
+                       placeholder="Più di 6 caratteri tra lettere e numeri">
+                <p><b>Selezione la tipologia di utente</b></p>
+                <div><input type="radio" name="tipo" id="pt" value="Trainer"> Personal Trainer</div>
+                <div><input type="radio" name="tipo" id="u" value="Utilizzatore"> Utente</div>
+                <input type="submit" id="submitL" value="Login" class="button">
+            </form>
+        </div>
+    </div>
+
+    <div class="popup" id="registrazione">
+        <div class="popup__content">
+            <a href="#header" class="popup__close">&times;</a>
+            <form action="RegistrazioneServlet" method="post" class="popup__form" id="reg_form"
+                  enctype="multipart/form-data">
+                <h3>Effettua la registrazione</h3>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" onchange="checkEmailReg(this.value)"
+                       placeholder="email@gmail.com">
+                <label for="cf">Codice Fiscale</label>
+                <input type="text" name="cf" id="cf">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome">
+                <label for="eta">Età</label>
+                <input type="text" name="eta" id="eta">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass" onchange="checkPassReg(this.value)"
+                       placeholder="Più di 6 caratteri tra lettere e numeri">
+                <label for="user">Tipologia Utente</label>
+                <div><input type="radio" name="user" id="pti" value="PersonalTrainer"> Personal Trainer</div>
+                <div><input type="radio" name="user" id="us" value="Utente" checked> Utente</div>
+                <label for="indF">Indirizzo Fatturazione</label>
+                <input type="text" name="indF" id="indF">
+                <label for="pIva">Partita IVA</label>
+                <input type="text" name="pIva" id="pIva">
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto">
+
+                <input type="submit" id="submit" value="Registrati" class="button">
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/pacchetti.js}" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("label[for='pIva']").hide();
+            $("#pIva").hide();
+            $("label[for='foto']").hide();
+            $("#foto").hide();
+            $("#reg_form input").change(function () {
+                var val = $("input[name=user]:checked", "#reg_form").val();
+                if (val != undefined) {
+                    if (val == "PersonalTrainer") {
+                        $("label[for='pIva']").show();
+                        $("#pIva").show();
+                        $("label[for='foto']").show();
+                        $("#foto").show();
+                        $("label[for='indF']").hide();
+                        $("#indF").hide();
+                    } else {
+                        $("label[for='pIva']").hide();
+                        $("#pIva").hide();
+                        $("label[for='foto']").hide();
+                        $("#foto").hide();
+                        $("label[for='indF']").show();
+                        $("#indF").show();
+                    }
+                }
+            });
+        });
+    </script>
+</div>

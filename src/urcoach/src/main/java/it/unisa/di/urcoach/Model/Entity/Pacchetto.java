@@ -3,8 +3,10 @@ package it.unisa.di.urcoach.Model.Entity;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
+@Table(name = "Pacchetti")
 public class Pacchetto {
     @Id
     @GeneratedValue
@@ -13,10 +15,13 @@ public class Pacchetto {
     private float costo;
     private int durata;
     private String foto;
+    private Date dataCreazione;
+    private String descrizione;
+
     @ManyToOne
     @JoinColumn
     private Categoria categoria;
-    private String descrizione;
+
     @ManyToOne
     @JoinColumn
     private PersonalTrainer personalTrainer;
@@ -24,13 +29,14 @@ public class Pacchetto {
     public Pacchetto() {
     }
 
-    public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, Categoria categoria, String descrizione) {
+    public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, Categoria categoria, Date dataCreazione, String descrizione) {
         this.nome = nome;
         this.costo = costo;
         this.durata = durata;
         this.personalTrainer = personalTrainer;
         this.foto = foto;
         this.categoria = categoria;
+        this.dataCreazione = dataCreazione;
         this.descrizione = descrizione;
     }
 
@@ -88,6 +94,14 @@ public class Pacchetto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Date getDataCreazione() {
+        return dataCreazione;
+    }
+
+    public void setDataCreazione(Date dataCreazione) {
+        this.dataCreazione = dataCreazione;
     }
 
     public String getDescrizione() {

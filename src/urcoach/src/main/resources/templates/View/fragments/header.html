@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" th:fragment="header (pageTitle)">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header id="header" th:classappend="${pageTitle == 'Home'} ? home : page">
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo col-xs-5 col-md-2">
+                <h1>
+                    <a href="@{/}">
+                        <img class="logo__img" th:src="@{/img/logo-light.png}" alt="urCoach">
+                    </a>
+                </h1>
+            </div>
+
+            <div class="toggle">
+                <img th:src="@{img/toggle.svg}" alt="">
+            </div>
+
+            <div class="menu__background">&nbsp;</div>
+
+            <nav class="main-menu col-md-8">
+                <ul class="center-md">
+                    <li><a th:classappend="${pageTitle == 'Home' ? 'active' : ''}" th:href="@{/}">Home</a></li>
+                    <li><a th:classappend="${pageTitle == 'Pacchetti' ? 'active' : ''}" th:href="@{/pacchetti}">Pacchetti</a></li>
+                    <li><a th:classappend="${pageTitle == 'Trainers' ? 'active' : ''}" th:href="@{/trainers}">Trainers</a></li>
+                    <li><a th:classappend="${pageTitle == 'Chi Siamo' ? 'active' : ''}" th:href="@{/about}">Chi Siamo</a></li>
+                    <li><a th:classappend="${pageTitle == 'Contatti' ? 'active' : ''}" th:href="@{/contatti}">Contatti</a></li>
+                    <li th:if="${session.get('logged')} == null or ${session.get('logged')} == false"><a href="#registrazione">Registrazione</a></li>
+                    <li th:if="${session.containsKey('logged')} and ${session.get('logged')} == true"><a th:href="@{/logout}">Logout</a></li>
+                    <li th:if="${!session.containsKey('logged')} or ${session.get('logged')} == false"><a href="#login">Login</a></li>
+                    <li><a th:href="@{/carrello}" th:text="${session.get('nCarrello')}">0</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="icon col-md-2" th:with="loggato=${session.get('logged')}">
+                <div th:if="${loggato} == null or ${loggato} == false">
+                    <a href="#registrazione"><img th:src="@{/img/register-icon.svg}" alt=""></a>
+                </div>
+                <div th:if="${loggato} != null and ${loggato} == true">
+                    <a th:href="@{/logout}" title="Vuoi effettuare il logout?"><img th:src="@{/img/logout-icon.svg}"
+                                                                                    alt=""></a>
+                </div>
+                <div th:if="${loggato} == null or ${loggato} == false">
+                    <a href="#login"><img th:src="@{/img/login-icon.svg}" alt=""></a>
+                </div>
+                <div class="cart--over">
+                    <a th:href="@{/carrello}"><img th:src="@{/img/cart-icon.svg}" alt=""></a>
+                    <div class="over"
+                         th:text="${session.get('nCarrello')} == null ? 0 : ${session.get('nCarrello')}"></div>
+                </div>
+                <div>
+                    <a href="#ricerca"><img th:src="@{/img/search-icon.svg}" alt=""></a>
+                </div>
+                <div>
+                    <a href="#"><img th:src="@{/img/instagram-icon.svg}" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt" th:if="${pageTitle} == Home">
+            <div class="header__intro col-xs-12 col-md-5">
+                <h2 class="heading-primary">Il tuo <span class="highlight">sogno</span> non è mai stato così vicino
+                </h2>
+                <p class="paragraph mb">Affidati a dei professionisti del benessere, urCoach ti aiuta! Scegli il
+                    personal trainer che fa per te, approfitta dei pacchetti migliori e raggiungi la forma che sognavi.
+                    Sei un personal trainer? Tranquill oci sono vantaggi anche per te!</p>
+                <a href="#" class="button">Chi Siamo</a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-offset-1 col-md-3">
+                <div class="card">
+                    <div class="card__img">
+                        <img src="img/header.jpg" alt="">
+                    </div>
+                    <div class="card__container">
+                        <h4 class="card__title">
+                            Davide Salierno
+                        </h4>
+                        <ul class="card__tag">
+                            <li>Personal Trainer</li>
+                            <li>Specializzato in massa</li>
+                            <li>30 Anni</li>
+                        </ul>
+                        <p class="paragraph">
+                            La mia più grande gioia è il benessere dei miei clienti, ed urCoach è fantastica per questo!
+                            Mi permette di caricare i miei pacchetti ed entrare in contatto con le persone facilmente
+                            (ed ora guadagno il triplo)!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="card__img">
+                        <img src="img/header.jpg" alt="">
+                    </div>
+                    <div class="card__container">
+                        <h4 class="card__title">
+                            Giovanni Puca
+                        </h4>
+                        <ul class="card__tag">
+                            <li>Cliente</li>
+                            <li>Dopo 1 anno</li>
+                            <li>25 Anni</li>
+                        </ul>
+                        <p class="paragraph">
+                            urCoach mi ha permesso di cambiare stile di vita. Sono uno studente, non ho molto tempo da
+                            dedicare al benessere fisico. Ho iniziato il mese di prova con un coach e dopo i primi
+                            cambiamenti ho continuato. Sono una persona diversa!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
