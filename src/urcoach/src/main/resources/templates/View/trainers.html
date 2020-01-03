@@ -1,0 +1,27 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     th:replace="View/fragments/header :: header(pageTitle = 'Personal Trainers')"></div>
+<div xmlns:th="http://www.thymeleaf.org" class="container-fluid trainers">
+    <div class="row">
+        <main class="col-md-12 col-xs-12">
+            <h3>Tutti i nostri personal trainer</h3>
+            <p>Ricorda che sono tutti validi: li abbiamo verificati uno ad uno per te.</p>
+            <div id="here">
+                <div class="card" th:each="trainer : ${trainers}">
+                    <div class="card__img">
+                        <img th:src="${trainer.foto}" alt="">
+                    </div>
+                    <div class="card__container">
+                        <h4 class="card__title" th:text="${trainer.cognome} + ${trainer.nome}" />
+                        <ul class="card__tag">
+                            <li>Personal Trainer</li>
+                        </ul>
+                        <p class="paragraph" th:text>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer(pageTitle = 'Personal Trainers')"></div>

@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface PersonalTrainerRepository extends JpaRepository<PersonalTrainer, String> {
     List<PersonalTrainer> findAllByOrderByCognomeAsc();
-    List<PersonalTrainer> findAllByVerificato(boolean verificato);
+    List<PersonalTrainer> findAllByVerificato(int verificato);
 }

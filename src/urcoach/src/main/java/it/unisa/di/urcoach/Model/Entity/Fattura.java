@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -14,22 +16,28 @@ public class Fattura {
     @Column(name = "numeroFattura")
     private int numeroFattura;
     private float costo;
-    private int scontoCoupon;
-    private Date data;
+    private Date data = new Date(Calendar.getInstance().getTime().getTime());
 
     @ManyToOne
     @JoinColumn
     private Atleta atleta;
 
+    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "fattura")
+    //private List<Acquisto> acquisti = new ArrayList<>();
+
     public Fattura() {
     }
 
-    public Fattura(float costo, int scontoCoupon, Date data, Atleta atleta) {
+    public Fattura(float costo, Atleta atleta) {
         this.costo = costo;
-        this.scontoCoupon = scontoCoupon;
         this.atleta = atleta;
-        this.data = data;
     }
+
+    //public void aggiungiAcquisto(Pacchetto p) {
+    //    Acquisto a = new Acquisto(this, p, p.getCosto());
+    //    acquisti.add(a);
+    //    p.getAcquisti().add(a);
+    //}
 
     public int getNumeroFattura() {
         return numeroFattura;
@@ -45,14 +53,6 @@ public class Fattura {
 
     public void setCosto(float costo) {
         this.costo = costo;
-    }
-
-    public int getScontoCoupon() {
-        return scontoCoupon;
-    }
-
-    public void setScontoCoupon(int scontoCoupon) {
-        this.scontoCoupon = scontoCoupon;
     }
 
     public Atleta getAtleta() {

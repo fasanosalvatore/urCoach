@@ -1,0 +1,39 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/header :: header(pageTitle = 'Checkout')"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <main class="col-md-12 col-xs-12">
+            <div class="col-md-10 col-xs-8"><h3>Carrello</h3></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome Pacchetto</th>
+                    <th>Costo</th>
+                    <th>IVA</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p : ${pacchetti}">
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.costo}"></td>
+                    <td>22%</td>
+                </tr>
+                </tbody>
+            </table>
+            <div th:with="costo = (${session.get('carrello').getPrezzoTot()})">
+                <p th:text="'TOTALE: ' + ${costo}+'€'"></p>
+                <p th:text="'TOTALE IVA: ' + ${costo*22/100}+'€'"></p>
+                <p th:text="'TOTALE FATTURA: ' + ${costo+costo*22/100}+'€'"></p>
+                <form th:action="@{/nuovaFattura}" method="post" th:object="${fattura}" th:with="val = (${session.get('carrello').getPrezzo()})">
+                    <p th:text="${val}"></p>
+                    <p th:text="${session.get('atleta')}"></p>
+                    <input type="text" name="costo" th:field="*{costo}"  th:value="${val}" >
+                    <input type="text" name="email" th:field="*{atleta}" th:value="${session.get('atleta')}">
+                    <label for="cc">Carta di credito</label>
+                    <input type="text" name="cc" id="cc" placeholder="0000 0000 0000 0000">
+                    <input type="submit" class="button" value="Effettuta l'acquisto">
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer(pageTitle = 'Checkout')"></div>

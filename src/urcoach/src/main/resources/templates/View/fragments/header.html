@@ -28,17 +28,19 @@
 
             <div class="menu__background">&nbsp;</div>
 
-            <nav class="main-menu col-md-8">
+            <nav class="main-menu col-md-8" th:with="loggato=${session.get('logged')}">
                 <ul class="center-md">
                     <li><a th:classappend="${pageTitle == 'Home' ? 'active' : ''}" th:href="@{/}">Home</a></li>
                     <li><a th:classappend="${pageTitle == 'Pacchetti' ? 'active' : ''}" th:href="@{/pacchetti}">Pacchetti</a></li>
                     <li><a th:classappend="${pageTitle == 'Trainers' ? 'active' : ''}" th:href="@{/trainers}">Trainers</a></li>
                     <li><a th:classappend="${pageTitle == 'Chi Siamo' ? 'active' : ''}" th:href="@{/about}">Chi Siamo</a></li>
                     <li><a th:classappend="${pageTitle == 'Contatti' ? 'active' : ''}" th:href="@{/contatti}">Contatti</a></li>
-                    <li th:if="${session.get('logged')} == null or ${session.get('logged')} == false"><a href="#registrazione">Registrazione</a></li>
-                    <li th:if="${session.containsKey('logged')} and ${session.get('logged')} == true"><a th:href="@{/logout}">Logout</a></li>
-                    <li th:if="${!session.containsKey('logged')} or ${session.get('logged')} == false"><a href="#login">Login</a></li>
-                    <li><a th:href="@{/carrello}" th:text="${session.get('nCarrello')}">0</a></li>
+                    <li th:if="${loggato} == null or ${loggato} == false"><a href="#registrazione">Registrazione</a></li>
+                    <li th:if="${loggato} != null and ${loggato} == true"><a th:href="@{/areaPersonal}">Area Personale</a></li>
+                    <li th:if="${loggato} != null and ${loggato} == true"><a th:href="@{/logout}">Logout</a></li>
+                    <li th:if="${loggato} == null or ${loggato} == false"><a href="#login">Login</a></li>
+                    <li><a th:href="@{/carrello}" th:text="${'Carrello: ' + session.get('nCarrello')} == null ? '0' : ${session.get('nCarrello')}">Carrello 0</a></li>
+
                 </ul>
             </nav>
 
@@ -47,9 +49,8 @@
                 <div th:if="${loggato} == null or ${loggato} == false">
                     <a href="#registrazione"><img th:src="@{/img/register-icon.svg}" alt=""></a>
                 </div>
-                <div th:if="${loggato} != null and ${loggato} == true">
-                    <a th:href="@{/logout}" title="Vuoi effettuare il logout?"><img th:src="@{/img/logout-icon.svg}"
-                                                                                    alt=""></a>
+                <div th:if="${loggato} != null and ${loggato} == true" th:with="user = (${session.get('atleta')} == null ? ${session.get('trainer')} : ${session.get('atleta')})">
+                    <a th:href="@{/logout}" th:title="${user.nome} + ', vuoi effettuare il logout?'"><img th:src="@{/img/logout-icon.svg}" alt=""></a>
                 </div>
                 <div th:if="${loggato} == null or ${loggato} == false">
                     <a href="#login"><img th:src="@{/img/login-icon.svg}" alt=""></a>

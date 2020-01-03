@@ -30,16 +30,18 @@ public class PersonalTrainerImpl implements PersonalTrainerService {
     }
 
     @Override
-    public List<PersonalTrainer> findByVerificato(boolean verificato) {
+    public List<PersonalTrainer> findByVerificato(int verificato) {
         return personalTrainerRepository.findAllByVerificato(verificato);
     }
 
     @Override
-    public boolean checkUser(String email, String password) {
+    public PersonalTrainer checkUser(String email, String password) {
         PersonalTrainer pt = findByEmail(email);
         if(pt == null)
-            return false;
-        return pt.getPassword().equals(password);
+            return null;
+        if (pt.getPassword().equals(password))
+            return pt;
+        return null;
     }
 
     @Override

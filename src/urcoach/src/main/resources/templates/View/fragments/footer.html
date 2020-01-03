@@ -1,4 +1,4 @@
-<div xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="footer(pageTitle)">
     <footer>
         <div class="container-fluid">
             <div class="row">
@@ -36,7 +36,7 @@
     <div class="popup" id="ricerca">
         <a href="#header" class="popup__close" style="color: white">&times;</a>
         <div class="popup__form">
-            <input type="text" name="ricerca" id="ricercaText" oninput="$.fn.ricerca()">
+            <input type="text" name="ricerca" id="ricercaText">
         </div>
         <div class="container-fluid">
             <div id="here"></div>
@@ -47,7 +47,7 @@
     <div class="popup" id="login">
         <div class="popup__content" onload="document.login.usernameL.focus()">
             <a href="#header" class="popup__close">&times;</a>
-            <form action="Login" method="post" class="popup__form" name="login">
+            <form th:action="@{/login}" method="post" class="popup__form" name="login">
                 <h3>Effettua il login</h3>
                 <label for="usernameL">Username</label>
                 <input type="text" name="usernameL" id="usernameL" onchange="checkEmail(this.value)"
@@ -57,7 +57,7 @@
                        placeholder="Più di 6 caratteri tra lettere e numeri">
                 <p><b>Selezione la tipologia di utente</b></p>
                 <div><input type="radio" name="tipo" id="pt" value="Trainer"> Personal Trainer</div>
-                <div><input type="radio" name="tipo" id="u" value="Utilizzatore"> Utente</div>
+                <div><input type="radio" name="tipo" id="u" value="Atleta"> Utente</div>
                 <input type="submit" id="submitL" value="Login" class="button">
             </form>
         </div>
@@ -66,67 +66,61 @@
     <div class="popup" id="registrazione">
         <div class="popup__content">
             <a href="#header" class="popup__close">&times;</a>
-            <form action="RegistrazioneServlet" method="post" class="popup__form" id="reg_form"
-                  enctype="multipart/form-data">
-                <h3>Effettua la registrazione</h3>
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" onchange="checkEmailReg(this.value)"
-                       placeholder="email@gmail.com">
-                <label for="cf">Codice Fiscale</label>
-                <input type="text" name="cf" id="cf">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome">
-                <label for="cognome">Cognome</label>
-                <input type="text" name="cognome" id="cognome">
-                <label for="eta">Età</label>
-                <input type="text" name="eta" id="eta">
-                <label for="pass">Password</label>
-                <input type="password" name="pass" id="pass" onchange="checkPassReg(this.value)"
-                       placeholder="Più di 6 caratteri tra lettere e numeri">
+            <form class="tipologia">
                 <label for="user">Tipologia Utente</label>
                 <div><input type="radio" name="user" id="pti" value="PersonalTrainer"> Personal Trainer</div>
-                <div><input type="radio" name="user" id="us" value="Utente" checked> Utente</div>
-                <label for="indF">Indirizzo Fatturazione</label>
-                <input type="text" name="indF" id="indF">
+                <div><input type="radio" name="user" id="us" value="Atleta"> Atleta</div>
+            </form>
+            <form th:action="@{/registrazioneTrainer}" modelAttribute="trainer" th:object="${trainer}" method="POST" class="popup__form" id="reg_form_trainer" enctype="multipart/form-data">
+                <h3>Effettua la registrazione come trainer</h3>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" th:field="*{email}" placeholder="email@gmail.com">
+                <label for="cf">Codice Fiscale</label>
+                <input type="text" name="cf" id="cf" th:field="*{codiceFiscale}">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" th:field="*{nome}">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome" th:field="*{cognome}">
+                <label for="dataNascita">Data di nascita</label>
+                <input type="date" name="dataNascita" id="dataNascita" th:field="*{dataNascita}">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass" th:field="*{password}" placeholder="Più di 6 caratteri tra lettere e numeri">
                 <label for="pIva">Partita IVA</label>
-                <input type="text" name="pIva" id="pIva">
+                <input type="text" name="pIva" id="pIva" th:field="*{pIva}">
                 <label for="foto">Foto</label>
                 <input type="file" name="foto" id="foto">
-
+                <textarea th:field="*{bio}"></textarea>
+                <input type="hidden" th:field="*{verificato}" value="0">
                 <input type="submit" id="submit" value="Registrati" class="button">
             </form>
+            <form th:action="@{/registrazioneAtleta}" th:object="${atleta}" method="POST" class="popup__form"
+                  id="reg_form_atleta"
+                  enctype="multipart/form-data">
+                <h3>Effettua la registrazione come atleta</h3>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" th:field="*{email}"
+                       onchange="checkEmailReg(this.value)"
+                       placeholder="email@gmail.com">
+                <label for="cf">Codice Fiscale</label>
+                <input type="text" name="cf" id="cf" th:field="*{codiceFiscale}">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" th:field="*{nome}">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome" th:field="*{cognome}">
+                <label for="dataNascita">Data di nascita</label>
+                <input type="date" name="dataNascita" id="dataNascita" th:field="*{dataNascita}">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass" th:field="*{password}" onchange="checkPassReg(this.value)"
+                       placeholder="Più di 6 caratteri tra lettere e numeri">
+                <label for="indF">Indirizzo Fatturazione</label>
+                <input type="text" name="indF" id="indF" th:field="*{indirizzoFatturazione}">
+                <input type="submit" id="submit" value="Registrati" class="button">
+            </form>
+
         </div>
     </div>
 
-    <script th:src="@{/js/pacchetti.js}" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{/js/main.js}" type="text/javascript"></script>
+    <script th:src="@{/js/pacchetti.js}" type="text/javascript" th:if="${pageTitle} == 'Pacchetti'"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("label[for='pIva']").hide();
-            $("#pIva").hide();
-            $("label[for='foto']").hide();
-            $("#foto").hide();
-            $("#reg_form input").change(function () {
-                var val = $("input[name=user]:checked", "#reg_form").val();
-                if (val != undefined) {
-                    if (val == "PersonalTrainer") {
-                        $("label[for='pIva']").show();
-                        $("#pIva").show();
-                        $("label[for='foto']").show();
-                        $("#foto").show();
-                        $("label[for='indF']").hide();
-                        $("#indF").hide();
-                    } else {
-                        $("label[for='pIva']").hide();
-                        $("#pIva").hide();
-                        $("label[for='foto']").hide();
-                        $("#foto").hide();
-                        $("label[for='indF']").show();
-                        $("#indF").show();
-                    }
-                }
-            });
-        });
-    </script>
 </div>

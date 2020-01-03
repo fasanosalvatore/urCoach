@@ -25,6 +25,10 @@ public class Carrello {
         return pacchetti.values().stream().mapToDouble(p -> p.getCosto()).sum();
     }
 
+    public double getPrezzo() {
+        return getPrezzoTot()+getPrezzoTot()*22/100;
+    }
+
     public int getNumeroPacchetti() {
         return pacchetti.size();
     }

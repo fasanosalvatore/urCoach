@@ -7,7 +7,7 @@ import java.util.List;
 public interface AtletaService {
     List<Atleta> findAll();
     Atleta findByEmail(String email);
-    boolean checkUser(String email, String password);
+    Atleta checkUser(String email, String password);
     void save(Atleta a);
     void deleteByEmail(String email);
 }

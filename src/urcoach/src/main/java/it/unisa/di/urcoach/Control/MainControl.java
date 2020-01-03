@@ -1,5 +1,6 @@
 package it.unisa.di.urcoach.Control;
 
+import it.unisa.di.urcoach.Model.Entity.Atleta;
 import it.unisa.di.urcoach.Model.Entity.Carrello;
 import it.unisa.di.urcoach.Model.Entity.Pacchetto;
 import it.unisa.di.urcoach.Model.Entity.PersonalTrainer;
@@ -22,7 +23,7 @@ public class MainControl {
     private final AtletaService atletaService;
     private final PersonalTrainerService personalTrainerService;
     private final PacchettoService pacchettoService;
-    private Carrello carrello;
+    private final Carrello carrello = new Carrello();
 
     public MainControl(AtletaService atletaService, PersonalTrainerService personalTrainerService, PacchettoService pacchettoService) {
         this.atletaService = atletaService;
@@ -30,10 +31,19 @@ public class MainControl {
         this.pacchettoService = pacchettoService;
     }
 
-    @GetMapping("/homepage")
-    public String getHome(Model model) {
+
+    @GetMapping("/")
+    public String getHome(Model model, HttpServletRequest req) {
         List<Pacchetto> ultimiPacchetti = pacchettoService.findLast();
         model.addAttribute("ultimiPacchetti", ultimiPacchetti);
+        PersonalTrainer trainer = new PersonalTrainer();
+        Atleta atleta = new Atleta();
+        model.addAttribute("trainer", trainer);
+        model.addAttribute("atleta", atleta);
+        if(req.getSession().getAttribute("carrello") == null) {
+            req.getSession().setAttribute("carrello", carrello);
+            req.getSession().setAttribute("nCarrello", 0);
+        }
         return "View/index";
     }
 }

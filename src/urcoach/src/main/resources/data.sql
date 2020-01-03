@@ -9,5 +9,5 @@ INSERT INTO urcoachIS.pacchetti (id_pacchetto, costo, data_creazione, descrizion
 (3, 300, '2018-12-18', null, 20, null, 'Dimagrire in 3 giorni', 'Definizione', 'ciao@ciao.it'),
 (4, 400, '2019-12-18', null, 20, null, 'Dimagrire in 3 giorni', 'Definizione', 'ciao@ciao.it'),
 (5, 500, '2020-12-18', null, 20, null, 'Dimagrire in 3 giorni', 'Definizione', 'ciao@ciao.it');
-
+INSERT INTO `urcoachIS`.`atleti` (`email`, `codice_fiscale`, `cognome`, `data_nascita`, `indirizzo_fatturazione`, `nome`, `password`) VALUES ('ciao@sal.it', 'dsjcasjkhkj', 'Fasano', '2020-01-16', 'via Benedetto Cairoli', 'Salvatore', 'ciao');
 

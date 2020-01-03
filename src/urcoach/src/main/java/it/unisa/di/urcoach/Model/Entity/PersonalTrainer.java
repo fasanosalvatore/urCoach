@@ -1,6 +1,7 @@
 package it.unisa.di.urcoach.Model.Entity;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,14 +22,17 @@ public class PersonalTrainer {
     private String password;
     private String pIva;
     private String foto;
+    private String bio;
     private int verificato;
+    /*
     @OneToMany(mappedBy = "personalTrainer")
     List<Pacchetto> pacchettiCreati;
+    */
 
     public PersonalTrainer() {
     }
 
-    public PersonalTrainer(String email, String codiceFiscale, String nome, String cognome, Date dataNascita, String password, String pIva, String foto, int verificato) {
+    public PersonalTrainer(String email, String codiceFiscale, String nome, String cognome, Date dataNascita, String password, String pIva, MultipartFile foto, String bio, int verificato) {
         this.email = email;
         this.codiceFiscale = codiceFiscale;
         this.nome = nome;
@@ -36,7 +40,8 @@ public class PersonalTrainer {
         this.dataNascita = dataNascita;
         this.password = password;
         this.pIva = pIva;
-        this.foto = foto;
+        //this.foto = foto;
+        this.bio = bio;
         this.verificato = verificato;
     }
 
@@ -102,6 +107,14 @@ public class PersonalTrainer {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public int getVerificato() {

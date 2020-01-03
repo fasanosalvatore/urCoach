@@ -1,9 +1,13 @@
 package it.unisa.di.urcoach.Model.Entity;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NaturalIdCache;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Pacchetti")
@@ -25,6 +29,9 @@ public class Pacchetto {
     @ManyToOne
     @JoinColumn
     private PersonalTrainer personalTrainer;
+
+    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "pacchetto")
+    //private List<Acquisto> acquisti = new ArrayList<>();
 
     public Pacchetto() {
     }
@@ -111,4 +118,5 @@ public class Pacchetto {
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }
+
 }

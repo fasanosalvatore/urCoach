@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     th:replace="View/fragments/header :: header(pageTitle = 'Pacchetto')"></div>
+<div class="p__wrapper"
+     style="background-image: linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(img/header.jpg)" xmlns:th="http://www.thymeleaf.org">
+    <div class="container-fluid">
+        <h3 th:text="${p.nome}"></h3>
+        <div class="row">
+            <img src="img/header.jpg" alt="" class="col-md-offset-2 col-md-4">
+            <div class="col-md-6">
+                <p th:text="'Nome Pacchetto: ' + ${p.nome}"/>
+                <p th:text="'Durata: ' + ${p.durata}+'week'"></p>
+                <p th:text="'Personal trainer: ' + ${p.personalTrainer.cognome} + ' ' + ${p.personalTrainer.cognome}"></p>
+                <p th:text="'Categoria: ' + ${p.categoria.nome}"></p>
+                <p><b th:text="'Costo: ' + ${p.costo}+'€'"></b></p>
+                <form th:action="@{/carrello}" method="POST">
+                    <input type="hidden" name="idPacchetto" th:value="${p.idPacchetto}">
+                    <input type="hidden" name="azione" value="aggiungi">
+                    <input type="submit" value="Acquista" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer(pageTitle = 'Pacchetto')"></div>

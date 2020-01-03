@@ -1,0 +1,32 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/header :: header(pageTitle = 'Carrello')"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <main class="col-md-12 col-xs-12">
+            <div class="col-md-10 col-xs-8"><h3>Carrello</h3></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome Pacchetto</th>
+                    <th>Costo</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p : ${pacchetti}">
+                        <td th:text="${p.nome}"></td>
+                        <td th:text="${p.costo}"></td>
+                        <td><form th:action="@{/carrello}" method="post">
+                            <input type="hidden" name="idPacchetto" th:value="${p.idPacchetto}">
+                            <input type="hidden" name="azione" value="rimuovi">
+                            <button class="button" type="submit">Cancella</button>
+                        </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:with="costo = (${session.get('carrello').getPrezzoTot()})" th:text="'Il costo totale è ' + ${costo}+'€'"></p>
+            <a class="button" th:href="@{/checkout}">Procedi al checkout</a>
+        </main>
+    </div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer(pageTitle = 'Carrello')"></div>

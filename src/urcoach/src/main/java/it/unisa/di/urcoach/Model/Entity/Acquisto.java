@@ -19,16 +19,17 @@ public class Acquisto {
     @JoinColumn
     private Pacchetto pacchetto;
 
-    private String nomePacchetto;
     private float costo;
 
-    public Acquisto() {
+    public Acquisto(Fattura fattura, Pacchetto pacchetto, float costo) {
+        this.fattura = fattura;
+        this.pacchetto = pacchetto;
+        this.costo = costo;
+        this.acquistoId = new AcquistoID(fattura.getNumeroFattura(), pacchetto.getIdPacchetto());
     }
 
-    public Acquisto(AcquistoID acquistoId, String nomePacchetto, float costo) {
-        this.acquistoId = acquistoId;
-        this.nomePacchetto = nomePacchetto;
-        this.costo = costo;
+    public Acquisto() {
+
     }
 
     public AcquistoID getAcquistoId() {
@@ -39,12 +40,20 @@ public class Acquisto {
         this.acquistoId = acquistoId;
     }
 
-    public String getNomePacchetto() {
-        return nomePacchetto;
+    public Fattura getFattura() {
+        return fattura;
     }
 
-    public void setNomePacchetto(String nomePacchetto) {
-        this.nomePacchetto = nomePacchetto;
+    public void setFattura(Fattura fattura) {
+        this.fattura = fattura;
+    }
+
+    public Pacchetto getPacchetto() {
+        return pacchetto;
+    }
+
+    public void setPacchetto(Pacchetto pacchetto) {
+        this.pacchetto = pacchetto;
     }
 
     public float getCosto() {

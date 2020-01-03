@@ -1,5 +1,6 @@
 package it.unisa.di.urcoach.Control.Pacchetti;
 
+import it.unisa.di.urcoach.Model.Entity.Atleta;
 import it.unisa.di.urcoach.Model.Entity.Categoria;
 import it.unisa.di.urcoach.Model.Entity.Pacchetto;
 import it.unisa.di.urcoach.Model.Entity.PersonalTrainer;
@@ -58,6 +59,21 @@ public class PacchettiControl {
         List<PersonalTrainer> trainers = personalTrainerService.findAll();
         model.addAttribute("categorie", categorie);
         model.addAttribute("trainers", trainers);
+        PersonalTrainer trainer = new PersonalTrainer();
+        Atleta atleta = new Atleta();
+        model.addAttribute("trainer", trainer);
+        model.addAttribute("atleta", atleta);
         return "View/pacchetti";
+    }
+
+    @GetMapping(value = "/pacchetti/{id}")
+    public String showPacchetto(@PathVariable("id") int id, Model model) {
+        Pacchetto pacchetto = pacchettoService.findById(id);
+        model.addAttribute("p", pacchetto);
+        PersonalTrainer trainer = new PersonalTrainer();
+        Atleta atleta = new Atleta();
+        model.addAttribute("trainer", trainer);
+        model.addAttribute("atleta", atleta);
+        return "View/pacchetto";
     }
 }

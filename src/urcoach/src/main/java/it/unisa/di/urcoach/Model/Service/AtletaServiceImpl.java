@@ -29,11 +29,13 @@ public class AtletaServiceImpl implements AtletaService{
     }
 
     @Override
-    public boolean checkUser(String email, String password) {
+    public Atleta checkUser(String email, String password) {
         Atleta atleta = findByEmail(email);
         if (atleta == null)
-            return false;
-        return atleta.getPassword().equals(password);
+            return null;
+        if (atleta.getPassword().equals(password))
+            return atleta;
+        return null;
     }
 
     @Override

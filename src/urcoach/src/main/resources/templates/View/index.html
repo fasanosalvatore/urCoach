@@ -70,7 +70,7 @@
                             <p class="paragraph">
 
                             </p>
-                            <a th:href="@{/pacchetto(id=${pacchetto.idPacchetto})}" class="button" th:text="'Acquista ' + ${pacchetto.costo} + '€'" />
+                            <a th:with="url = ('/pacchetti/'+ ${pacchetto.idPacchetto})" th:href="@{${url}}" class="button" th:text="'Acquista ' + ${pacchetto.costo} + '€'" />
                         </div>
                     </div>
                 </div>
@@ -78,4 +78,4 @@
         <a href="#" class="button">Chi Siamo</a>
     </div>
 </section>
-<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer"></div>
+<div xmlns:th="http://www.thymeleaf.org" th:replace="View/fragments/footer :: footer(pageTitle = 'Home')"></div>
