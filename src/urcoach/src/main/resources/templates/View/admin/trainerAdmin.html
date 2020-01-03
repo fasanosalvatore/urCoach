@@ -1,0 +1,32 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Recruiter')" xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div th:replace="View/fragments/sidebar :: sidebar"></div>
+        <main class="col-md-9 col-xs-12">
+            <h3>Trainers</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Stato</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Vendite Totali</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="trainer : ${trainers}">
+                    <td><span th:classappend="${trainer.verificato == 0 ? 'ff' : 'ss'}"></span></td>
+                    <td th:text="${trainer.nome}"></td>
+                    <td th:text="${trainer.cognome}"></td>
+                    <td th:text="'0'"></td>
+                    <td>
+                        <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='verifica')}" th:if="${trainer.verificato==0}">Verifica</a>
+                        <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='invalida')}" th:unless="${trainer.verificato==0}">Invalida</a>
+                        <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='rimuovi')}">Cancella</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>

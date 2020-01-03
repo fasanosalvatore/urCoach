@@ -9,12 +9,12 @@ public class Acquisto {
     @EmbeddedId
     private AcquistoID acquistoId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @MapsId("numeroFattura")
     @JoinColumn
     private Fattura fattura;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @MapsId("idPacchetto")
     @JoinColumn
     private Pacchetto pacchetto;

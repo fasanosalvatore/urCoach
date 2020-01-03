@@ -18,13 +18,15 @@ public class CarrelloControl {
     private final PersonalTrainerService personalTrainerService;
     private final FatturaService fatturaService;
     private final AcquistoService acquistoService;
+    private final AtletaService atletaService;
 
-    public CarrelloControl(PacchettoService pacchettoService, CategoriaService categoriaService, PersonalTrainerService personalTrainerService, FatturaService fatturaService, AcquistoService acquistoService) {
+    public CarrelloControl(PacchettoService pacchettoService, CategoriaService categoriaService, PersonalTrainerService personalTrainerService, FatturaService fatturaService, AcquistoService acquistoService, AtletaService atletaService) {
         this.pacchettoService = pacchettoService;
         this.categoriaService = categoriaService;
         this.personalTrainerService = personalTrainerService;
         this.fatturaService = fatturaService;
         this.acquistoService = acquistoService;
+        this.atletaService = atletaService;
     }
 
     @PostMapping("/carrello")
@@ -67,16 +69,14 @@ public class CarrelloControl {
         model.addAttribute("pacchetti", carrello.getPacchetti());
         PersonalTrainer trainer = new PersonalTrainer();
         Atleta atleta = new Atleta();
-        Fattura fattura = new Fattura();
         model.addAttribute("trainer", trainer);
         model.addAttribute("atleta", atleta);
-        model.addAttribute("fattura", fattura);
-        model.addAttribute("atletaAcquisto", atletaAcquisto);
         return "View/checkout";
     }
 
     @PostMapping("/nuovaFattura")
-    public String nuovaFattura(@ModelAttribute("fattura") Fattura fattura, Model model, HttpServletRequest req) {
+    public String nuovaFattura(@RequestParam("costo") float costo, @RequestParam("atleta") String email, Model model, HttpServletRequest req) {
+        Fattura fattura = new Fattura(costo, atletaService.findByEmail(email));
         fatturaService.save(fattura);
         Carrello carrello = (Carrello)req.getSession().getAttribute("carrello");
         for(Pacchetto p : carrello.getPacchetti()) {

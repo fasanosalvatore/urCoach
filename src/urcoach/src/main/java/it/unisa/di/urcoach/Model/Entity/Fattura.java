@@ -12,18 +12,15 @@ import java.util.List;
 @Table(name="Fatture")
 public class Fattura {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numeroFattura")
     private int numeroFattura;
     private float costo;
     private Date data = new Date(Calendar.getInstance().getTime().getTime());
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn
     private Atleta atleta;
-
-    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "fattura")
-    //private List<Acquisto> acquisti = new ArrayList<>();
 
     public Fattura() {
     }

@@ -1,0 +1,8 @@
+<aside class="col-md-3 col-xs-12" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" th:fragment="sidebar">
+    <h3>Quick Link</h3>
+    <ul>
+        <li sec:authorize="hasRole('ORDINI')"><a th:href="@{/ordini}">Acquisti</a></li>
+        <li sec:authorize="hasRole('RECRUITER')"><a th:href="@{/recruiter}">Trainers</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+    </ul>
+</aside>

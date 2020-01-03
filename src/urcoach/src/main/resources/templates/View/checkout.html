@@ -23,11 +23,9 @@
                 <p th:text="'TOTALE: ' + ${costo}+'€'"></p>
                 <p th:text="'TOTALE IVA: ' + ${costo*22/100}+'€'"></p>
                 <p th:text="'TOTALE FATTURA: ' + ${costo+costo*22/100}+'€'"></p>
-                <form th:action="@{/nuovaFattura}" method="post" th:object="${fattura}" th:with="val = (${session.get('carrello').getPrezzo()})">
-                    <p th:text="${val}"></p>
-                    <p th:text="${session.get('atleta')}"></p>
-                    <input type="text" name="costo" th:field="*{costo}"  th:value="${val}" >
-                    <input type="text" name="email" th:field="*{atleta}" th:value="${session.get('atleta')}">
+                <form th:action="@{/nuovaFattura}" method="post" th:with="val = (${session.get('carrello').getPrezzo()})">
+                    <input type="hidden" name="costo" th:value="${val}" >
+                    <input type="hidden" name="atleta" th:value="${session.get('atleta').getEmail()}">
                     <label for="cc">Carta di credito</label>
                     <input type="text" name="cc" id="cc" placeholder="0000 0000 0000 0000">
                     <input type="submit" class="button" value="Effettuta l'acquisto">

@@ -1,11 +1,10 @@
 package it.unisa.di.urcoach.Control.Utenza;
 
+import it.unisa.di.urcoach.Model.Entity.Acquisto;
 import it.unisa.di.urcoach.Model.Entity.Atleta;
 import it.unisa.di.urcoach.Model.Entity.PersonalTrainer;
-import it.unisa.di.urcoach.Model.Service.AtletaService;
-import it.unisa.di.urcoach.Model.Service.CategoriaService;
-import it.unisa.di.urcoach.Model.Service.PacchettoService;
-import it.unisa.di.urcoach.Model.Service.PersonalTrainerService;
+import it.unisa.di.urcoach.Model.Service.*;
+import org.aspectj.weaver.patterns.PerObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -25,12 +24,16 @@ public class UtenzaControl {
     private final PacchettoService pacchettoService;
     private final CategoriaService categoriaService;
     private final PersonalTrainerService personalTrainerService;
+    private final FatturaService fatturaService;
+    private final AcquistoService acquistoService;
     private final AtletaService atletaService;
 
-    public UtenzaControl(PacchettoService pacchettoService, CategoriaService categoriaService, PersonalTrainerService personalTrainerService, AtletaService atletaService) {
+    public UtenzaControl(PacchettoService pacchettoService, CategoriaService categoriaService, PersonalTrainerService personalTrainerService, FatturaService fatturaService, AcquistoService acquistoService, AtletaService atletaService) {
         this.pacchettoService = pacchettoService;
         this.categoriaService = categoriaService;
         this.personalTrainerService = personalTrainerService;
+        this.fatturaService = fatturaService;
+        this.acquistoService = acquistoService;
         this.atletaService = atletaService;
     }
 
@@ -43,6 +46,35 @@ public class UtenzaControl {
         model.addAttribute("trainer", trainer);
         model.addAttribute("atleta", atleta);
         return "View/trainers";
+    }
+
+    @GetMapping("/recruiter")
+    public String showRecruiter(Model model) {
+        List<PersonalTrainer> trainers = personalTrainerService.findAll();
+        model.addAttribute("trainers", trainers);
+        return "View/admin/trainerAdmin.html";
+    }
+
+    @GetMapping("/recruiter/gestioneTrainer")
+    public String gestioneTrainer(@RequestParam("email") String emailTrainer, @RequestParam("azione") String azione, Model model) {
+        PersonalTrainer pt = personalTrainerService.findByEmail(emailTrainer);
+        if(azione.equals("verifica")) {
+            pt.setVerificato(1);
+            personalTrainerService.save(pt);
+        }
+        else if(azione.equals("invalida")) {
+            pt.setVerificato(0);
+            personalTrainerService.save(pt);
+        }
+        else if(azione.equals("rimuovi")) personalTrainerService.deleteByEmail(emailTrainer);
+        return "redirect:/recruiter";
+    }
+
+    @GetMapping("/ordini")
+    public String mostraOrdini(Model model) {
+        List<Acquisto> acquisti = acquistoService.findAll();
+        model.addAttribute("acquisti", acquisti);
+        return "View/admin/acquistiAdmin";
     }
 
     @PostMapping("/login")

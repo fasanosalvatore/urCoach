@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "Pacchetti")
 public class Pacchetto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPacchetto;
     private String nome;
     private float costo;
@@ -29,9 +29,6 @@ public class Pacchetto {
     @ManyToOne
     @JoinColumn
     private PersonalTrainer personalTrainer;
-
-    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "pacchetto")
-    //private List<Acquisto> acquisti = new ArrayList<>();
 
     public Pacchetto() {
     }

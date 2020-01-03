@@ -3,10 +3,7 @@ package it.unisa.di.urcoach.Model.Entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -24,10 +21,8 @@ public class PersonalTrainer {
     private String foto;
     private String bio;
     private int verificato;
-    /*
-    @OneToMany(mappedBy = "personalTrainer")
+    @OneToMany(mappedBy = "personalTrainer", cascade = CascadeType.REMOVE, orphanRemoval = true)
     List<Pacchetto> pacchettiCreati;
-    */
 
     public PersonalTrainer() {
     }
