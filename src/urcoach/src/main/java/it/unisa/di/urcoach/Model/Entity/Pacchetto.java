@@ -1,5 +1,6 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NaturalIdCache;
@@ -26,11 +27,24 @@ public class Pacchetto {
     @JoinColumn
     private Categoria categoria;
 
+
     @ManyToOne
     @JoinColumn
     private PersonalTrainer personalTrainer;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "pacchetto", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Acquisto> acquisti = new ArrayList<>();
+
     public Pacchetto() {
+    }
+
+    public Pacchetto(String nome, float costo, int durata, Date dataCreazione, String descrizione) {
+        this.nome = nome;
+        this.costo = costo;
+        this.durata = durata;
+        this.dataCreazione = dataCreazione;
+        this.descrizione = descrizione;
     }
 
     public Pacchetto(String nome, float costo, int durata, PersonalTrainer personalTrainer, String foto, Categoria categoria, Date dataCreazione, String descrizione) {
@@ -116,4 +130,11 @@ public class Pacchetto {
         this.descrizione = descrizione;
     }
 
+    public List<Acquisto> getAcquisti() {
+        return acquisti;
+    }
+
+    public void setAcquisti(List<Acquisto> acquisti) {
+        this.acquisti = acquisti;
+    }
 }

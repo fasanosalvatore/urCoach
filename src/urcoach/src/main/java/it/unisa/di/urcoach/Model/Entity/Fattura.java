@@ -22,6 +22,9 @@ public class Fattura {
     @JoinColumn
     private Atleta atleta;
 
+    @OneToMany(mappedBy = "fattura", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Acquisto> acquisti;
+
     public Fattura() {
     }
 

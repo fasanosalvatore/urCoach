@@ -15,5 +15,6 @@ public interface PacchettoService {
     List<Pacchetto> findByNome(String nome);
     Pacchetto findById(int id);
     void save(Pacchetto p);
+    void saveOrUpdate(int id);
     void deleteById(int id);
 }

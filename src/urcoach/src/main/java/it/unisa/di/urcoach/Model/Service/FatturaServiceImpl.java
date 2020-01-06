@@ -1,5 +1,6 @@
 package it.unisa.di.urcoach.Model.Service;
 
+import it.unisa.di.urcoach.Model.Entity.Atleta;
 import it.unisa.di.urcoach.Model.Entity.Fattura;
 import it.unisa.di.urcoach.Model.Repository.FatturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ public class FatturaServiceImpl implements FatturaService {
     @Override
     public List<Fattura> findAll() {
         return fatturaRepository.findAll();
+    }
+
+    @Override
+    public List<Fattura> findByAtleta(Atleta a) {
+        return fatturaRepository.findByAtleta(a);
     }
 
     @Override

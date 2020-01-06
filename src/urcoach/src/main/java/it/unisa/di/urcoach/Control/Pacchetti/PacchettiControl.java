@@ -1,9 +1,6 @@
 package it.unisa.di.urcoach.Control.Pacchetti;
 
-import it.unisa.di.urcoach.Model.Entity.Atleta;
-import it.unisa.di.urcoach.Model.Entity.Categoria;
-import it.unisa.di.urcoach.Model.Entity.Pacchetto;
-import it.unisa.di.urcoach.Model.Entity.PersonalTrainer;
+import it.unisa.di.urcoach.Model.Entity.*;
 import it.unisa.di.urcoach.Model.Service.CategoriaService;
 import it.unisa.di.urcoach.Model.Service.PacchettoService;
 import it.unisa.di.urcoach.Model.Service.PersonalTrainerService;
@@ -12,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Date;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -75,5 +74,54 @@ public class PacchettiControl {
         model.addAttribute("trainer", trainer);
         model.addAttribute("atleta", atleta);
         return "View/pacchetto";
+    }
+
+    /*********************
+     * Gestione pacchetti
+     *********************/
+
+    @GetMapping("/areaPersonale/gestionePacchetti")
+    public String gestionePacchetti(@RequestParam(value = "azione", required = false) String azione, @RequestParam(value = "id", required = false) Integer id, Model model, HttpServletRequest req) {
+        if(req.getSession().getAttribute("trainer") != null) {
+            PersonalTrainer pt = (PersonalTrainer) req.getSession().getAttribute("trainer");
+            if (azione == null) {
+                List<Pacchetto> pacchetti = pacchettoService.findAllByPersonalTrainer(pt);
+                model.addAttribute("pacchetti", pacchetti);
+                return "View/gestionePacchetti";
+            } else if (azione.equals("nuovo")) {
+                Pacchetto pacchetto = new Pacchetto();
+                model.addAttribute("pacchetto", pacchetto);
+                List<Categoria> categorie = categoriaService.findAll();
+                model.addAttribute("categorie", categorie);
+                return "View/nuovoPacchetto";
+            } else if (azione.equals("edit")) {
+                model.addAttribute("edit", true);
+                Pacchetto pacchetto = pacchettoService.findById(id);
+                model.addAttribute("pacchetto", pacchetto);
+                List<Categoria> categorie = categoriaService.findAll();
+                model.addAttribute("categorie", categorie);
+                return "View/nuovoPacchetto";
+            } else if (azione.equals("rimuovi")) {
+                pacchettoService.deleteById(id);
+                return "redirect:/areaPersonale/gestionePacchetti";
+            }
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping("/areaPersonale/gestionePacchetti/salva")
+    public String salvaPacchetto(@ModelAttribute("pacchetto") Pacchetto pacchetto, @RequestParam(value = "categoria", required = false) String categoria, Model model, HttpServletRequest req) {
+        if(req.getSession().getAttribute("trainer") != null) {
+            PersonalTrainer pt = (PersonalTrainer) req.getSession().getAttribute("trainer");
+            pacchetto.setPersonalTrainer(pt);
+            pacchetto.setCategoria(categoriaService.findByNome(categoria));
+            //clear existing children list so that they are removed from database
+            pacchetto.getAcquisti().clear();
+            pacchetto.getAcquisti().addAll(new ArrayList<Acquisto>());
+            pacchetto.setDataCreazione(new Date(Calendar.getInstance().getTime().getTime()));
+            pacchettoService.save(pacchetto);
+            return "redirect:/areaPersonale/gestionePacchetti";
+        }
+        return "redirect:/";
     }
 }

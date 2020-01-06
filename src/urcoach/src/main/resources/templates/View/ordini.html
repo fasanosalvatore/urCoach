@@ -1,0 +1,28 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Area Personale')"
+     xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div th:replace="View/fragments/sidebarPersonale :: sidebarPersonale"></div>
+        <main class="col-md-9 col-xs-12">
+            <h3>Ordini Effettuati</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Data Fattura</th>
+                    <th>Numero Fattura</th>
+                    <th>Costo Totale</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="fattura : ${fatture}">
+                    <td th:text="${fattura.data}"></td>
+                    <td th:text="${fattura.numeroFattura}"></td>
+                    <td th:text="${fattura.costo}+'€'"></td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+<div th:replace="View/fragments/footer :: footer(pageTitle = 'Area Personale')"
+     xmlns:th="http://www.thymeleaf.org"></div>

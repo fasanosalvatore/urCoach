@@ -17,4 +17,5 @@ public interface PacchettoRepository extends JpaRepository<Pacchetto, Integer> {
     //List<Pacchetto> findAllByCostoBetween(float limiteInf, float limiteSup);
     List<Pacchetto> findByCategoria(Categoria categoria);
     List<Pacchetto> findByPersonalTrainer(PersonalTrainer personalTrainer);
+    Pacchetto getOne(int id);
 }

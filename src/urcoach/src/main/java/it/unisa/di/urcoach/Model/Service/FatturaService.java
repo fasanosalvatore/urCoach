@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface FatturaService {
     List<Fattura> findAll();
+    List<Fattura> findByAtleta(Atleta a);
     void save(Fattura a);
 }

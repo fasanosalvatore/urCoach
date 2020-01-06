@@ -61,6 +61,11 @@ public class PacchettoServiceImpl implements PacchettoService{
     }
 
     @Override
+    public void saveOrUpdate(int id) {
+        pacchettoRepository.getOne(id);
+    }
+
+    @Override
     public void deleteById(int id) {
         pacchettoRepository.deleteById(id);
     }

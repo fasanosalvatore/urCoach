@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,8 +20,8 @@ public class Atleta {
     private Date dataNascita;
     private String indirizzoFatturazione;
     private String password;
-    @OneToMany(mappedBy = "atleta")
-    private List<Fattura> fatture;
+    @OneToMany(mappedBy = "atleta", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Fattura> fatture = new ArrayList<>();
 
     public Atleta() {
     }
@@ -89,5 +90,13 @@ public class Atleta {
 
     public void setCodiceFiscale(String codiceFiscale) {
         this.codiceFiscale = codiceFiscale;
+    }
+
+    public List<Fattura> getFatture() {
+        return fatture;
+    }
+
+    public void setFatture(List<Fattura> fatture) {
+        this.fatture = fatture;
     }
 }

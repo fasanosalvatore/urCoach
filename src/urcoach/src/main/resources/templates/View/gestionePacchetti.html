@@ -1,0 +1,33 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Gestione Pacchetti')"
+     xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div th:replace="View/fragments/sidebarPersonale :: sidebarPersonale"></div>
+        <main class="col-md-9">
+            <div class="row">
+                <div class="col-md-10 col-xs-8"><h3>Pacchetti</h3></div>
+                <div class="col-md-2 col-xs-4"><a th:href="@{/areaPersonale/gestionePacchetti(azione = 'nuovo')}" class="button">Aggiungi Pacchetto</a></div>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome Pachetto</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="pacchetto : ${pacchetti}">
+                        <td th:text="${pacchetto.nome}"></td>
+                        <td>
+                            <a th:href="@{/areaPersonale/gestionePacchetti(id = ${pacchetto.idPacchetto}, azione = 'edit')}" class="button">Modifica</a>
+                            <a th:href="@{/areaPersonale/gestionePacchetti(id = ${pacchetto.idPacchetto}, azione = 'rimuovi')}" class="button">Cancella</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+<div th:replace="View/fragments/footer :: footer(pageTitle = 'Gestione Pacchetti')"
+     xmlns:th="http://www.thymeleaf.org"></div>

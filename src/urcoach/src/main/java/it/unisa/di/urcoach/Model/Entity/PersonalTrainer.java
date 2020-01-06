@@ -1,10 +1,12 @@
 package it.unisa.di.urcoach.Model.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,8 +23,10 @@ public class PersonalTrainer {
     private String foto;
     private String bio;
     private int verificato;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "personalTrainer", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    List<Pacchetto> pacchettiCreati;
+    List<Pacchetto> pacchettiCreati = new ArrayList<>();
 
     public PersonalTrainer() {
     }
@@ -118,5 +122,13 @@ public class PersonalTrainer {
 
     public void setVerificato(int verificato) {
         this.verificato = verificato;
+    }
+
+    public List<Pacchetto> getPacchettiCreati() {
+        return pacchettiCreati;
+    }
+
+    public void setPacchettiCreati(List<Pacchetto> pacchettiCreati) {
+        this.pacchettiCreati = pacchettiCreati;
     }
 }

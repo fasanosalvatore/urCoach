@@ -1,0 +1,27 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Nuovo Pacchetto')"
+     xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid">
+    <div class="row" xmlns:th="http://www.thymeleaf.org">
+        <main class="col-md-12">
+            <h3 th:text="${edit == null ? 'Inserisci nuovo pacchetto' : 'Modifica Pacchetto'}"></h3>
+            <form th:action="@{/areaPersonale/gestionePacchetti/salva}" method="POST" th:object="${pacchetto}" class="edit__form" enctype="multipart/form-data">
+                <input type="hidden" name="idPacchetto" id="id" th:value="${pacchetto.idPacchetto}">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" th:value="${pacchetto.nome}">
+                <label for="costo">Costo</label>
+                <input type="text" name="costo" id="costo" th:value="${pacchetto.costo}">
+                <label for="durata">Durata (settimane)</label>
+                <input type="text" name="durata" id="durata" th:value="${pacchetto.durata}">
+                <label for="fotop">Foto</label>
+                <!-- <input type="file" name="foto" id="fotop" th:value="${pacchetto.foto}"> -->
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option th:each="categoria : ${categorie}" th:value="${categoria.nome}" th:text="${categoria.nome}" th:selected="${pacchetto.categoria == null or categoria.nome != pacchetto.categoria.nome}"></option>
+                </select>
+                <input type="submit" value="Invia" class="button">
+            </form>
+        </main>
+    </div>
+</div>
+<div th:replace="View/fragments/footer :: footer(pageTitle = 'Nuovo Pacchetto')"
+     xmlns:th="http://www.thymeleaf.org"></div>

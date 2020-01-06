@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class="popup" id="registrazione">
+    <div class="popup" id="registrazione" th:if="${session.get('logged')} == null or ${session.get('logged')} == false">
         <div class="popup__content">
             <a href="#header" class="popup__close">&times;</a>
             <form class="tipologia">

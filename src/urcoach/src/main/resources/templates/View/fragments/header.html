@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns:th="http://www.thymeleaf.org" th:fragment="header (pageTitle)">
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" th:fragment="header (pageTitle)">
 <head>
     <meta charset="UTF-8">
     <title th:text="${pageTitle}"></title>
@@ -35,11 +35,13 @@
                     <li><a th:classappend="${pageTitle == 'Trainers' ? 'active' : ''}" th:href="@{/trainers}">Trainers</a></li>
                     <li><a th:classappend="${pageTitle == 'Chi Siamo' ? 'active' : ''}" th:href="@{/about}">Chi Siamo</a></li>
                     <li><a th:classappend="${pageTitle == 'Contatti' ? 'active' : ''}" th:href="@{/contatti}">Contatti</a></li>
-                    <li th:if="${loggato} == null or ${loggato} == false"><a href="#registrazione">Registrazione</a></li>
-                    <li th:if="${loggato} != null and ${loggato} == true"><a th:href="@{/areaPersonal}">Area Personale</a></li>
-                    <li th:if="${loggato} != null and ${loggato} == true"><a th:href="@{/logout}">Logout</a></li>
-                    <li th:if="${loggato} == null or ${loggato} == false"><a href="#login">Login</a></li>
-                    <li><a th:href="@{/carrello}" th:text="${'Carrello: ' + session.get('nCarrello')} == null ? '0' : ${session.get('nCarrello')}">Carrello 0</a></li>
+                    <li sec:authorize="hasRole('RECRUITER')"><a th:classappend="${pageTitle == 'Recruiter' ? 'active' : ''}" th:href="@{/recruiter}">Recruiter</a></li>
+                    <li sec:authorize="hasRole('ORDINI')"><a th:classappend="${pageTitle == 'Ordini' ? 'active' : ''}" th:href="@{/ordini}">Ordini</a></li>
+                    <li th:if="${loggato} != null and ${loggato} == true"><a th:href="@{/areaPersonale}">Area Personale</a></li>
+                    <li th:if="${loggato} == null or ${loggato} == false" class="hide"><a href="#registrazione">Registrazione</a></li>
+                    <li th:if="${loggato} != null and ${loggato} == true" class="hide"><a th:href="@{/logout}">Logout</a></li>
+                    <li th:if="${loggato} == null or ${loggato} == false" class="hide"><a href="#login">Login</a></li>
+                    <li class="hide"><a th:href="@{/carrello}" th:text="'Carrello: ' + ${session.get('nCarrello')} == null ? '0' : ${session.get('nCarrello')}">Carrello 0</a></li>
 
                 </ul>
             </nav>

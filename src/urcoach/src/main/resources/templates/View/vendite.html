@@ -1,0 +1,28 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Area Personale')"
+     xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div th:replace="View/fragments/sidebarPersonale :: sidebarPersonale"></div>
+        <main class="col-md-9 col-xs-12">
+            <h3>Vendite Effettuate</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Cliente</th>
+                    <th>Pacchetto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="acquisto : ${vendite}">
+                    <td th:text="${acquisto.fattura.data}"></td>
+                    <td th:text="${acquisto.fattura.atleta.cognome} + ' ' + ${acquisto.fattura.atleta.nome}"></td>
+                    <td th:text="${acquisto.pacchetto.nome}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+<div th:replace="View/fragments/footer :: footer(pageTitle = 'Area Personale')"
+     xmlns:th="http://www.thymeleaf.org"></div>

@@ -82,6 +82,7 @@ public class CarrelloControl {
         for(Pacchetto p : carrello.getPacchetti()) {
             acquistoService.save(new Acquisto(fattura, p, p.getCosto()));
         }
-        return "redirect:/";
+        carrello.getPacchetti().clear();
+        return "redirect:/areaPersonale";
     }
 }

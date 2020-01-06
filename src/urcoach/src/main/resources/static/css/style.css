@@ -1304,9 +1304,7 @@ header .button {
     color: #fff;
 }
 
-
-.main-menu ul li:nth-child(7),
-.main-menu ul li:nth-child(8) {
+.hide {
     display: none;
 }
 

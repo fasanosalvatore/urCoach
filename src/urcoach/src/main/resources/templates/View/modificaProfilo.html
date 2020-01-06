@@ -1,0 +1,46 @@
+<div th:replace="View/fragments/header :: header(pageTitle = 'Modifica Profilo')"
+     xmlns:th="http://www.thymeleaf.org"></div>
+<div class="container-fluid">
+    <div class="row" xmlns:th="http://www.thymeleaf.org">
+        <main class="col-md-12">
+            <h3>Modifica Profilo</h3>
+            <form th:action="@{/areaPersonale/modificaProfilo/salvaAtleta}" th:object="${utente}" method="POST" class="edit__form" enctype="multipart/form-data" th:if="${atleta} == true">
+                <label for="username">Username</label>
+                <input type="text" name="email" id="username" th:value="${utente.email}" placeholder="email@gmail.com">
+                <label for="cf">Codice Fiscale</label>
+                <input type="text" name="codiceFiscale" id="cf" th:value="${utente.codiceFiscale}">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" th:value="${utente.nome}">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome" th:value="${utente.cognome}">
+                <label for="dataNascita">Data di nascita</label>
+                <input type="date" name="dataNascita" id="dataNascita" th:value="${utente.dataNascita}">
+                <label for="pass">Password</label>
+                <input type="password" name="password" id="pass" th:value="${utente.password}" placeholder="Più di 6 caratteri tra lettere e numeri">
+                <label for="indF">Indirizzo Fatturazione</label>
+                <input type="text" name="indirizzoFatturazione" id="indF" th:value="${utente.indirizzoFatturazione}">
+                <input type="submit" id="submit" value="Aggiorna" class="button">
+            </form>
+            <form th:action="@{/areaPersonale/modificaProfilo/salvaTrainer}"  th:object="${utente}" method="POST" class="edit__form" enctype="multipart/form-data" th:if="${trainer} == true">
+                <label for="username">Username</label>
+                <input type="text" name="email" id="username" th:value="${utente.email}" placeholder="email@gmail.com">
+                <label for="cf">Codice Fiscale</label>
+                <input type="text" name="codiceFiscale" id="cf" th:value="${utente.codiceFiscale}">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" th:value="${utente.nome}">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome" th:value="${utente.cognome}">
+                <label for="dataNascita">Data di nascita</label>
+                <input type="date" name="dataNascita" id="dataNascita" th:value="${utente.dataNascita}">
+                <label for="pass">Password</label>
+                <input type="password" name="password" id="pass" th:value="${utente.password}" placeholder="Più di 6 caratteri tra lettere e numeri">
+                <label for="pIva">Partita IVA</label>
+                <input type="text" name="pIva" id="pIva" th:value="${utente.pIva}">
+                <textarea name="bio" th:text="${utente.bio}"></textarea>
+                <input type="submit" id="submit" value="Registrati" class="button">
+            </form>
+        </main>
+    </div>
+</div>
+<div th:replace="View/fragments/footer :: footer(pageTitle = 'Modifica Profilo')"
+     xmlns:th="http://www.thymeleaf.org"></div>
