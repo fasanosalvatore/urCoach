@@ -5,6 +5,12 @@
         <main class="col-md-12">
             <h3>Modifica Profilo</h3>
             <form th:action="@{/areaPersonale/modificaProfilo/salvaAtleta}" th:object="${utente}" method="POST" class="edit__form" enctype="multipart/form-data" th:if="${atleta} == true">
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                    <p><strong>Errori</strong></p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
                 <label for="username">Username</label>
                 <input type="text" name="email" id="username" th:value="${utente.email}" placeholder="email@gmail.com">
                 <label for="cf">Codice Fiscale</label>
@@ -22,6 +28,12 @@
                 <input type="submit" id="submit" value="Aggiorna" class="button">
             </form>
             <form th:action="@{/areaPersonale/modificaProfilo/salvaTrainer}"  th:object="${utente}" method="POST" class="edit__form" enctype="multipart/form-data" th:if="${trainer} == true">
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                    <p><strong>Errori</strong></p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
                 <label for="username">Username</label>
                 <input type="text" name="email" id="username" th:value="${utente.email}" placeholder="email@gmail.com">
                 <label for="cf">Codice Fiscale</label>

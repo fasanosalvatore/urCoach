@@ -5,6 +5,12 @@
         <main class="col-md-12">
             <h3 th:text="${edit == null ? 'Inserisci nuovo pacchetto' : 'Modifica Pacchetto'}"></h3>
             <form th:action="@{/areaPersonale/gestionePacchetti/salva}" method="POST" th:object="${pacchetto}" class="edit__form" enctype="multipart/form-data">
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                    <p><strong>Errori</strong></p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
                 <input type="hidden" name="idPacchetto" id="id" th:value="${pacchetto.idPacchetto}">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" th:value="${pacchetto.nome}">

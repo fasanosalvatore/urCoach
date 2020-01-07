@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +15,23 @@ import java.util.List;
 @Table(name = "PersonalTrainers")
 public class PersonalTrainer {
     @Id
+    @Email(message = "L'email non rispecchia il formato")
     private String email;
+    @Pattern(regexp = "^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", message = "Il codice fiscale non rispetta il formato")
     private String codiceFiscale;
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Il nome non rispetta il formato")
     private String nome;
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Il cognome non rispetta il formato")
     private String cognome;
     private Date dataNascita;
+    @Pattern(regexp = "^[A-Za-z0-9]{5,15}$", message = "La password è troppo debole, inserire almeno 5 caratteri")
     private String password;
+    @Pattern(regexp = "^[0-9]{11}$", message = "La partita IVA non rispetta il formato")
     private String pIva;
+    @Pattern(regexp = "^.+\\.jpg$", message = "La foto deve essere in formato jpeg")
     private String foto;
+    @Pattern(regexp = "^.+\\.pdf$", message = "Il curriculum deve essere in formato pdf")
+    private String curriculum;
     private String bio;
     private int verificato;
 
@@ -31,7 +42,7 @@ public class PersonalTrainer {
     public PersonalTrainer() {
     }
 
-    public PersonalTrainer(String email, String codiceFiscale, String nome, String cognome, Date dataNascita, String password, String pIva, MultipartFile foto, String bio, int verificato) {
+    public PersonalTrainer(String email, String codiceFiscale, String nome, String cognome, Date dataNascita, String password, String pIva, String bio, int verificato) {
         this.email = email;
         this.codiceFiscale = codiceFiscale;
         this.nome = nome;

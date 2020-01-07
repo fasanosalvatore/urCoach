@@ -7,9 +7,11 @@ import it.unisa.di.urcoach.Model.Service.PersonalTrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.sql.Date;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -110,8 +112,14 @@ public class PacchettiControl {
     }
 
     @PostMapping("/areaPersonale/gestionePacchetti/salva")
-    public String salvaPacchetto(@ModelAttribute("pacchetto") Pacchetto pacchetto, @RequestParam(value = "categoria", required = false) String categoria, Model model, HttpServletRequest req) {
+    public String salvaPacchetto(@Valid @ModelAttribute("pacchetto") Pacchetto pacchetto, BindingResult bindingResult, @RequestParam(value = "categoria", required = false) String categoria, Model model, HttpServletRequest req) {
         if(req.getSession().getAttribute("trainer") != null) {
+            if(bindingResult.hasErrors()) {
+                model.addAttribute("pacchetto", pacchetto);
+                List<Categoria> categorie = categoriaService.findAll();
+                model.addAttribute("categorie", categorie);
+                return "View/nuovoPacchetto";
+            }
             PersonalTrainer pt = (PersonalTrainer) req.getSession().getAttribute("trainer");
             pacchetto.setPersonalTrainer(pt);
             pacchetto.setCategoria(categoriaService.findByNome(categoria));

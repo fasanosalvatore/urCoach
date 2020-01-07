@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class UtenzaControl {
             }
         }
         model.addAttribute("errore", "Username o password errati");
-        return "View/error";
+        return "View/index";
     }
 
     @GetMapping("/logout")
@@ -75,10 +76,10 @@ public class UtenzaControl {
     }
 
     @PostMapping("/registrazioneTrainer")
-    public String registrazione(@ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, HttpServletRequest req) {
+    public String registrazione(@Valid @ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getAllErrors());
-            return "View/error";
+            model.addAttribute("trainer", trainer);
+            return "View/index";
         }
         //String nome = StringUtils.cleanPath(foto.getOriginalFilename());
         personalTrainerService.save(trainer);
@@ -88,10 +89,10 @@ public class UtenzaControl {
     }
 
     @PostMapping("/registrazioneAtleta")
-    public String registrazione(@ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, HttpServletRequest req) {
+    public String registrazione(@ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getAllErrors());
-            return "View/error";
+            model.addAttribute("atleta", atleta);
+            return "View/index";
         }
         //String nome = StringUtils.cleanPath(foto.getOriginalFilename());
         atletaService.save(atleta);
@@ -163,7 +164,12 @@ public class UtenzaControl {
     }
 
     @PostMapping("/areaPersonale/modificaProfilo/salvaAtleta")
-    public String aggiornaProfiloAtleta(@ModelAttribute("utente") Atleta atleta, Model model, HttpServletRequest req) {
+    public String aggiornaProfiloAtleta(@Valid @ModelAttribute("utente") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("atleta", true);
+            model.addAttribute("utente", atleta);
+            return "View/modificaProfilo";
+        }
         atleta.getFatture().clear();
         atleta.getFatture().addAll(new ArrayList<Fattura>());
         atletaService.save(atleta);
@@ -172,7 +178,12 @@ public class UtenzaControl {
     }
 
     @PostMapping("/areaPersonale/modificaProfilo/salvaTrainer")
-    public String aggiornaProfiloTrainer(@ModelAttribute("utente") PersonalTrainer pt, Model model, HttpServletRequest req) {
+    public String aggiornaProfiloTrainer(@Valid @ModelAttribute("utente") PersonalTrainer pt,BindingResult bindingResult, Model model, HttpServletRequest req) {
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("trainer", true);
+            model.addAttribute("utente", pt);
+            return "View/modificaProfilo";
+        }
         pt.getPacchettiCreati().clear();
         pt.getPacchettiCreati().addAll(new ArrayList<>());
         personalTrainerService.save(pt);

@@ -6,6 +6,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NaturalIdCache;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +19,18 @@ public class Pacchetto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPacchetto;
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Il nome ha un formato non valido")
     private String nome;
+    @DecimalMax(value = "999.99", message = "Il costo ha un formato non valido")
     private float costo;
+    @DecimalMin(value = "1", message = "La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi")
+    @DecimalMax(value = "12", message = "La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi")
     private int durata;
     private String foto;
+    @Pattern(regexp = "\\b(\\w*Base|Intermedio|Avanazato\\w*)\\b", message = "La difficoltà non è valida")
+    private String difficolta;
     private Date dataCreazione;
+    @Pattern(regexp = "^[A-Za-z ]{0,200}$", message = "La descrizione ha un formato non valido")
     private String descrizione;
 
     @ManyToOne
@@ -128,6 +138,14 @@ public class Pacchetto {
 
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
+    }
+
+    public String getDifficolta() {
+        return difficolta;
+    }
+
+    public void setDifficolta(String difficolta) {
+        this.difficolta = difficolta;
     }
 
     public List<Acquisto> getAcquisti() {

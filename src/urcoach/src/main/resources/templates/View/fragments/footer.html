@@ -49,6 +49,7 @@
             <a href="#header" class="popup__close">&times;</a>
             <form th:action="@{/login}" method="post" class="popup__form" name="login">
                 <h3>Effettua il login</h3>
+                <p th:if="${errore} != null" th:text="${errore}" style="color: red;"></p>
                 <label for="usernameL">Username</label>
                 <input type="text" name="usernameL" id="usernameL" onchange="checkEmail(this.value)"
                        placeholder="email@gmail.com">
@@ -73,6 +74,12 @@
             </form>
             <form th:action="@{/registrazioneTrainer}" modelAttribute="trainer" th:object="${trainer}" method="POST" class="popup__form" id="reg_form_trainer" enctype="multipart/form-data">
                 <h3>Effettua la registrazione come trainer</h3>
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                    <p><strong>Errori</strong></p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" th:field="*{email}" placeholder="email@gmail.com">
                 <label for="cf">Codice Fiscale</label>
@@ -88,7 +95,6 @@
                 <label for="pIva">Partita IVA</label>
                 <input type="text" name="pIva" id="pIva" th:field="*{pIva}">
                 <label for="foto">Foto</label>
-                <input type="file" name="foto" id="foto">
                 <textarea th:field="*{bio}"></textarea>
                 <input type="hidden" th:field="*{verificato}" value="0">
                 <input type="submit" id="submit" value="Registrati" class="button">
@@ -97,6 +103,12 @@
                   id="reg_form_atleta"
                   enctype="multipart/form-data">
                 <h3>Effettua la registrazione come atleta</h3>
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                    <p><strong>Errori</strong></p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" th:field="*{email}"
                        onchange="checkEmailReg(this.value)"

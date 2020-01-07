@@ -3,6 +3,8 @@ package it.unisa.di.urcoach.Model.Entity;
 import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +15,18 @@ public class Atleta {
 
     @Id
     @Column(name = "email")
+    @Email(message = "L'email non rispecchia il formato")
     private String email;
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Il nome non rispetta il formato")
     private String nome;
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Il cognome non rispetta il formato")
     private String cognome;
+    @Pattern(regexp = "^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", message = "Il codice fiscale non rispetta il formato")
     private String codiceFiscale;
     private Date dataNascita;
+    @Pattern(regexp = "^[A-Za-z ][0-9]{6,50}$", message = "L'indirizzo di fatturazione non rispetta il formato")
     private String indirizzoFatturazione;
+    @Pattern(regexp = "^[A-Za-z0-9]{5,15}$", message = "La password è troppo debole, inserire almeno 5 caratteri")
     private String password;
     @OneToMany(mappedBy = "atleta", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Fattura> fatture = new ArrayList<>();

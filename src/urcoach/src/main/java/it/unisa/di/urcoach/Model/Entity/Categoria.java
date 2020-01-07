@@ -3,11 +3,13 @@ package it.unisa.di.urcoach.Model.Entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "Categorie")
 public class Categoria {
     @Id
+    @Pattern(regexp = "\\b(\\w*Massa|Definizione|Mantenimento\\w*)\\b", message = "La categoria richiesta non è presente")
     private String nome;
 
     private String descrizione;
