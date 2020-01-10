@@ -24,7 +24,7 @@ public class Atleta {
     @Pattern(regexp = "^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", message = "Il codice fiscale non rispetta il formato")
     private String codiceFiscale;
     private Date dataNascita;
-    @Pattern(regexp = "^[A-Za-z ][0-9]{6,50}$", message = "L'indirizzo di fatturazione non rispetta il formato")
+    @Pattern(regexp = "^[A-Za-z0-9 ]{6,50}$", message = "L'indirizzo di fatturazione non rispetta il formato")
     private String indirizzoFatturazione;
     @Pattern(regexp = "^[A-Za-z0-9]{5,15}$", message = "La password è troppo debole, inserire almeno 5 caratteri")
     private String password;

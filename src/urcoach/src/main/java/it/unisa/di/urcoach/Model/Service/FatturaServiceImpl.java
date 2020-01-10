@@ -21,7 +21,7 @@ public class FatturaServiceImpl implements FatturaService {
 
     @Override
     public List<Fattura> findByAtleta(Atleta a) {
-        return fatturaRepository.findByAtleta(a);
+        return fatturaRepository.findByAtletaOrderByDataDesc(a);
     }
 
     @Override

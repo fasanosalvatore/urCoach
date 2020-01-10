@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface FatturaRepository extends JpaRepository<Fattura, Integer> {
-    List<Fattura> findByAtleta(Atleta a);
+    List<Fattura> findByAtletaOrderByDataDesc(Atleta a);
 }

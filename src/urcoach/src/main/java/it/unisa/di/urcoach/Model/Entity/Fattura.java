@@ -33,6 +33,12 @@ public class Fattura {
         this.atleta = atleta;
     }
 
+    public Fattura(float costo, Atleta atleta, Date data) {
+        this.costo = costo;
+        this.atleta = atleta;
+        this.data = data;
+    }
+
     //public void aggiungiAcquisto(Pacchetto p) {
     //    Acquisto a = new Acquisto(this, p, p.getCosto());
     //    acquisti.add(a);
@@ -69,5 +75,15 @@ public class Fattura {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Fattura that = (Fattura) o;
+
+        return (numeroFattura == that.getNumeroFattura());
     }
 }
