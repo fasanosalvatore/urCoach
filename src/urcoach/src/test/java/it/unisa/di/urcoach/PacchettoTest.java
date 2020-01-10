@@ -1,11 +1,10 @@
 package it.unisa.di.urcoach;
 
-import it.unisa.di.urcoach.Model.Entity.Pacchetto;
-import it.unisa.di.urcoach.Model.Repository.PacchettoRepository;
+import it.unisa.di.urcoach.model.entity.Pacchetto;
+import it.unisa.di.urcoach.model.repository.PacchettoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.TransactionSystemException;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;

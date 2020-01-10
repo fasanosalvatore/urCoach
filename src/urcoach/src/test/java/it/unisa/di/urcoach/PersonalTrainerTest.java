@@ -1,22 +1,15 @@
 package it.unisa.di.urcoach;
 
-import it.unisa.di.urcoach.Model.Entity.Atleta;
-import it.unisa.di.urcoach.Model.Entity.PersonalTrainer;
-import it.unisa.di.urcoach.Model.Repository.AtletaRepository;
-import it.unisa.di.urcoach.Model.Repository.PersonalTrainerRepository;
-import org.assertj.core.api.Assertions;
+import it.unisa.di.urcoach.model.entity.PersonalTrainer;
+import it.unisa.di.urcoach.model.repository.PersonalTrainerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.TransactionSystemException;
 
-import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.Optional;
-import java.util.function.BooleanSupplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 

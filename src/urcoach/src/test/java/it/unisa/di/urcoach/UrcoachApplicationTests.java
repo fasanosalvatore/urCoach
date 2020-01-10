@@ -1,26 +1,16 @@
 package it.unisa.di.urcoach;
 
-import it.unisa.di.urcoach.Model.Entity.Acquisto;
-import it.unisa.di.urcoach.Model.Entity.Atleta;
-import it.unisa.di.urcoach.Model.Entity.Fattura;
-import it.unisa.di.urcoach.Model.Entity.Pacchetto;
-import it.unisa.di.urcoach.Model.Repository.AtletaRepository;
-import it.unisa.di.urcoach.Model.Service.AcquistoService;
-import it.unisa.di.urcoach.Model.Service.FatturaService;
+import it.unisa.di.urcoach.model.entity.Atleta;
+import it.unisa.di.urcoach.model.entity.Fattura;
+import it.unisa.di.urcoach.model.repository.AtletaRepository;
+import it.unisa.di.urcoach.model.service.FatturaService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.TransactionSystemException;
 
-import javax.validation.ConstraintViolationException;
-import javax.validation.Valid;
 import java.sql.Date;
 import java.util.*;
-import java.util.function.BooleanSupplier;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class UrcoachApplicationTests {
