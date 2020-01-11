@@ -19,14 +19,10 @@ import java.util.List;
 @RequestMapping("/")
 public class MainControl {
 
-    private final AtletaService atletaService;
-    private final PersonalTrainerService personalTrainerService;
     private final PacchettoService pacchettoService;
     private final Carrello carrello = new Carrello();
 
-    public MainControl(AtletaService atletaService, PersonalTrainerService personalTrainerService, PacchettoService pacchettoService) {
-        this.atletaService = atletaService;
-        this.personalTrainerService = personalTrainerService;
+    public MainControl(PacchettoService pacchettoService) {
         this.pacchettoService = pacchettoService;
     }
 
