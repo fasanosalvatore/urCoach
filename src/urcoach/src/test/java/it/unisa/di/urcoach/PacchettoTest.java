@@ -19,44 +19,7 @@ public class PacchettoTest {
     @Autowired
     private PacchettoRepository pacchettoRepository;
 
-    @Test
-    public void salvataggioPacchettoCorretto() {
-        @Valid
-        Pacchetto p = new Pacchetto("Pacchetto", 800, 3, new Date(Calendar.getInstance().getTime().getTime()), "Ciao io sono Lucia e sono una sirena");
-        try {
-            pacchettoRepository.save(p);
-        } catch (ConstraintViolationException e) {fail("Non deve restituire una ConstraintViolation Exception");}
-    }
-
-    @Test
-    public void salvataggioPacchettoNome() {
-        @Valid
-        Pacchetto p = new Pacchetto("1", 800, 3, new Date(Calendar.getInstance().getTime().getTime()), "Ciao io sono Lucia e sono una sirena");
-        try {
-            pacchettoRepository.save(p);
-            fail("Deve restituire una ConstraintViolation Exception");
-        } catch (ConstraintViolationException e) {}
-    }
-
-    @Test
-    public void salvataggioPacchettoCosto() {
-        @Valid
-        Pacchetto p = new Pacchetto("Pacchetto", 200000, 3, new Date(Calendar.getInstance().getTime().getTime()), "Ciao io sono Lucia e sono una sirena");
-        try {
-            pacchettoRepository.save(p);
-            fail("Deve restituire una ConstraintViolation Exception");
-        } catch (ConstraintViolationException e) {}
-    }
-
-    @Test
-    public void salvataggioPacchettoDurata() {
-        @Valid
-        Pacchetto p = new Pacchetto("Pacchetto", 200, 80, new Date(Calendar.getInstance().getTime().getTime()), "Ciao io sono Lucia e sono una sirena");
-        try {
-            pacchettoRepository.save(p);
-            fail("Deve restituire una ConstraintViolation Exception");
-        } catch (ConstraintViolationException e) {}
-    }
+    
 
     @Test
     public void salvataggioPacchettoDescrizione() {
