@@ -19,7 +19,64 @@ class AtletaTest {
     @Autowired
     private AtletaRepository atletaRepository;
 
+    @Test
+    public void salvataggioAtletaCorretto() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+        } catch (TransactionSystemException e) {fail("Non deve restituire una ConstraintViolation Exception");}
+    }
 
+    @Test
+    public void salvataggioAtletaEmail() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatoregmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+            fail("Deve restituire una ConstraintViolation Exception");
+        } catch (TransactionSystemException e) {}
+    }
+
+    @Test
+    public void salvataggioAtletaNome() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatore@gmail.com", "1", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+            fail("Deve restituire una ConstraintViolation Exception");
+        } catch (TransactionSystemException e) {}
+    }
+
+    @Test
+    public void salvataggioAtletaCognome() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatore@gmail.com", "Salvatore", "1", "FSNSVT902A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+            fail("Deve restituire una ConstraintViolation Exception");
+        } catch (TransactionSystemException e) {}
+    }
+
+    @Test
+    public void salvataggioAtletaCodiceFiscale() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H8902A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+            fail("Deve restituire una ConstraintViolation Exception");
+        } catch (TransactionSystemException e) {}
+    }
+
+    @Test
+    public void salvataggioAtletaindirizzo() throws Exception{
+        @Valid
+        Atleta atleta = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli,14", "Ciao1");
+        try {
+            atletaRepository.save(atleta);
+            fail("Deve restituire una ConstraintViolation Exception");
+        } catch (TransactionSystemException e) {}
+    }
 
     @Test
     public void salvataggioAtletaPassword() throws Exception{
