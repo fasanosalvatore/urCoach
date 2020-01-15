@@ -4,5 +4,6 @@ services:
 before_install:
   - export TZ=Europe/Rome
   - cd src/urcoach
+  - chmod +x mvnw
 script:
   - mvn verify
