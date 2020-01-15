@@ -3,6 +3,5 @@ services:
   - mysql
 before_install:
   - export TZ=Europe/Rome
-  - mysql -u root --default-character-set=utf8 
 script:
   - mvn verify
