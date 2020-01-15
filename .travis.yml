@@ -1,5 +1,9 @@
 language: java
 jdk: oraclejdk13
+addons:
+  apt:
+    packages:
+      - oracle-java13-installer
 services:
   - mysql
 before_install:
@@ -7,6 +11,4 @@ before_install:
   - cd src/urcoach
   - chmod +x mvnw
 script:
-   - export JAVA_HOME=$HOME/oraclejdk13
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install oraclejdk13 --target $JAVA_HOME
   - mvn verify
