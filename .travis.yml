@@ -1,9 +1,5 @@
 language: java
 jdk: oraclejdk13
-addons:
-  apt:
-    packages:
-      - oracle-java13-installer
 services:
   - mysql
 before_install:
