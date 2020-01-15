@@ -3,6 +3,6 @@ services:
   - mysql
 before_install:
   - export TZ=Europe/Rome
-  - cd src/urCoach
+  - cd src/urcoach
 script:
   - mvn verify
