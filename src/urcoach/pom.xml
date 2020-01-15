@@ -126,6 +126,7 @@
 				<configuration>
 					<argLine>
 						--illegal-access=permit
+						--enable-preview
 					</argLine>
 				</configuration>
 			</plugin>
