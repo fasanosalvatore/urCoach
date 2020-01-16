@@ -275,6 +275,19 @@ class PacchettiControlTest {
     }
 
     @Test
+    void gestionePacchetti_AzioneOther() throws Exception{
+        PersonalTrainer a = new PersonalTrainer();
+        a.setEmail("salviofasano@gmail.com");
+        mockMvc.perform(get("/areaPersonale/gestionePacchetti")
+                .sessionAttr("trainer", a)
+                .sessionAttr("logged", true)
+                .param("azione", "ciao")
+                .param("id", "1"))
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/"));
+    }
+
+    @Test
     void salvaPacchetto_Valid() throws Exception{
         Categoria c = new Categoria();
         c.setNome("Massa");

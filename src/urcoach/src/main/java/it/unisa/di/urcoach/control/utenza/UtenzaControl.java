@@ -60,6 +60,10 @@ public class UtenzaControl {
             }
         }
         model.addAttribute("errore", "Username o password errati");
+        PersonalTrainer trainer = new PersonalTrainer();
+        Atleta atleta = new Atleta();
+        model.addAttribute("trainer", trainer);
+        model.addAttribute("atleta", atleta);
         return "View/index";
     }
 
@@ -72,8 +76,10 @@ public class UtenzaControl {
     }
 
     @PostMapping("/registrazioneTrainer")
-    public String registrazione(@Valid @ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, Model model, HttpServletRequest req) {
+    public String registrazioneTrainer(@Valid @ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(bindingResult.hasErrors()) {
+            Atleta atleta = new Atleta();
+            model.addAttribute("atleta", atleta);
             model.addAttribute("trainer", trainer);
             return "View/index";
         }
@@ -85,8 +91,10 @@ public class UtenzaControl {
     }
 
     @PostMapping("/registrazioneAtleta")
-    public String registrazione(@ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
+    public String registrazioneAtleta(@Valid @ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(bindingResult.hasErrors()) {
+            PersonalTrainer trainer = new PersonalTrainer();
+            model.addAttribute("trainer", trainer);
             model.addAttribute("atleta", atleta);
             return "View/index";
         }

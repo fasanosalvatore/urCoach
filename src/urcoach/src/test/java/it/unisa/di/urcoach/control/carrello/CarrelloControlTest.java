@@ -110,6 +110,40 @@ class CarrelloControlTest {
     }
 
     @Test
+    void aggiungiCarrello_CreaRimuovi() throws Exception{
+        Pacchetto p1 = new Pacchetto();
+        p1.setIdPacchetto(1);
+        p1.setNome("Dimagrire in 100 giorni");
+        when(pacchettoService.findById(1)).thenReturn(p1);
+        MockHttpServletRequest request = mockMvc.perform(post("/carrello")
+                .param("idPacchetto", "1")
+                .param("azione", "rimuovi"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("View/carrello"))
+                .andExpect(model().attributeExists("pacchetti", "trainer", "atleta"))
+                .andReturn().getRequest();
+        Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
+        assertFalse(carrello.getPacchetti().contains(p1));
+    }
+
+    @Test
+    void aggiungiCarrello_Crea() throws Exception{
+        Pacchetto p1 = new Pacchetto();
+        p1.setIdPacchetto(1);
+        p1.setNome("Dimagrire in 100 giorni");
+        when(pacchettoService.findById(1)).thenReturn(p1);
+        MockHttpServletRequest request = mockMvc.perform(post("/carrello")
+                .param("idPacchetto", "1")
+                .param("azione", "ciao"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("View/carrello"))
+                .andExpect(model().attributeExists("pacchetti", "trainer", "atleta"))
+                .andReturn().getRequest();
+        Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
+        assertFalse(carrello.getPacchetti().contains(p1));
+    }
+
+    @Test
     void mostraCarrello_Crea() throws Exception{
         mockMvc.perform(get("/carrello"))
                 .andExpect(status().isOk())
