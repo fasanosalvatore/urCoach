@@ -8,3 +8,5 @@ before_install:
   - chmod +x mvnw
 script:
   - mvn verify
+after_success:
+  - mvn clean test coveralls:report
