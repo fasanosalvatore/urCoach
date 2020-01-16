@@ -105,4 +105,14 @@ public class Atleta {
     public void setFatture(List<Fattura> fatture) {
         this.fatture = fatture;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Atleta that = (Atleta) o;
+
+        return (email == that.getEmail());
+    }
 }

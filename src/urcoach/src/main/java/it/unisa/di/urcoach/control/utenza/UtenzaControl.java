@@ -129,21 +129,17 @@ public class UtenzaControl {
     }
 
     @GetMapping("/areaPersonale/profilo")
-    public String showProfilo(@RequestParam("azione") String azione, Model model, HttpServletRequest req) {
+    public String deleteProfilo(Model model, HttpServletRequest req) {
         HttpSession session = req.getSession();
         if(session.getAttribute("logged") != null){
             if(session.getAttribute("atleta") != null) {
                 Atleta atleta = (Atleta) session.getAttribute("atleta");
-                if(azione.equals("rimuovi")) {
-                    logout(model, req);
-                    atletaService.deleteByEmail(atleta.getEmail());
-                }
+                logout(model, req);
+                atletaService.deleteByEmail(atleta.getEmail());
             } else if(session.getAttribute("trainer") != null) {
                 PersonalTrainer trainer = (PersonalTrainer) session.getAttribute("trainer");
-                if(azione.equals("rimuovi")) {
-                    logout(model, req);
-                    personalTrainerService.deleteByEmail(trainer.getEmail());
-                }
+                logout(model, req);
+                personalTrainerService.deleteByEmail(trainer.getEmail());
             }
         }
         return "redirect:/";
@@ -218,7 +214,7 @@ public class UtenzaControl {
     public String showRecruiter(Model model) {
         List<PersonalTrainer> trainers = personalTrainerService.findAll();
         model.addAttribute("trainers", trainers);
-        return "View/admin/trainerAdmin.html";
+        return "View/admin/trainerAdmin";
     }
 
     @GetMapping("/recruiter/gestioneTrainer")
