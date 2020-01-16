@@ -35,9 +35,17 @@ class MainControlTest {
     private MockMvc mockMvc;
 
     @Test
-    void getHome() throws Exception{
+    void getHome_NoCarrello() throws Exception{
         mockMvc.perform(get("/"))
-                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("View/index"))
+                .andExpect(model().attributeExists("ultimiPacchetti", "trainer", "atleta"));
+    }
+
+    @Test
+    void getHome_Carrello() throws Exception{
+        mockMvc.perform(get("/")
+                .sessionAttr("carrello", new Carrello()))
                 .andExpect(status().isOk())
                 .andExpect(view().name("View/index"))
                 .andExpect(model().attributeExists("ultimiPacchetti", "trainer", "atleta"));

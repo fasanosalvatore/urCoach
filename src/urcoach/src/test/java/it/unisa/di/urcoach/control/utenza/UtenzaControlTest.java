@@ -210,6 +210,21 @@ class UtenzaControlTest {
     }
 
     @Test
+    void deleteProfilo_NoLogged() throws Exception{
+        mockMvc.perform(get("/areaPersonale/profilo"))
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/"));
+    }
+
+    @Test
+    void deleteProfilo_Other() throws Exception{
+        mockMvc.perform(get("/areaPersonale/profilo")
+                .sessionAttr("logged", true))
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/"));
+    }
+
+    @Test
     void deleteProfilo_Atleta() throws Exception{
         Atleta a = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
         mockMvc.perform(get("/areaPersonale/profilo")

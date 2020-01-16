@@ -127,7 +127,7 @@ class PacchettiControlTest {
     }
 
     @Test
-    void filtriPacchetti_Prezzo() throws Exception{
+    void filtriPacchetti_PrezzoMinore() throws Exception{
         Pacchetto p1 = new Pacchetto();
         p1.setIdPacchetto(1);
         p1.setNome("Dimagrire in 100 giorni");
@@ -144,6 +144,27 @@ class PacchettiControlTest {
                 .param("prezzo", "800"))
                 .andDo(print())
                 .andExpect(jsonPath("$", hasSize(1)));
+        verify(pacchettoService).findAll();
+    }
+
+    @Test
+    void filtriPacchetti_PrezzoMaggiore() throws Exception{
+        Pacchetto p1 = new Pacchetto();
+        p1.setIdPacchetto(1);
+        p1.setNome("Dimagrire in 100 giorni");
+        p1.setCosto(1000);
+        Categoria c = new Categoria();
+        c.setNome("Massa");
+        p1.setCategoria(c);
+        List<Pacchetto> pacchetti = new ArrayList<>();
+        pacchetti.add(p1);
+        when(pacchettoService.findAll()).thenReturn(pacchetti);
+        mockMvc.perform(get("/api/pacchettiFiltri")
+                .param("nomeTrainer", "undefined")
+                .param("categoria", "undefined")
+                .param("prezzo", "800"))
+                .andDo(print())
+                .andExpect(jsonPath("$", hasSize(0)));
         verify(pacchettoService).findAll();
     }
 
