@@ -122,7 +122,6 @@ public class PacchettiControl {
             PersonalTrainer pt = (PersonalTrainer) req.getSession().getAttribute("trainer");
             pacchetto.setPersonalTrainer(pt);
             pacchetto.setCategoria(categoriaService.findByNome(categoria));
-            //clear existing children list so that they are removed from database
             pacchetto.getAcquisti().clear();
             pacchetto.getAcquisti().addAll(new ArrayList<Acquisto>());
             pacchetto.setDataCreazione(new Date(Calendar.getInstance().getTime().getTime()));

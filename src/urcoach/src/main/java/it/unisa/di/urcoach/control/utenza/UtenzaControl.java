@@ -22,16 +22,12 @@ import java.util.List;
 @Controller
 public class UtenzaControl {
 
-    private final PacchettoService pacchettoService;
-    private final CategoriaService categoriaService;
     private final PersonalTrainerService personalTrainerService;
     private final FatturaService fatturaService;
     private final AcquistoService acquistoService;
     private final AtletaService atletaService;
 
-    public UtenzaControl(PacchettoService pacchettoService, CategoriaService categoriaService, PersonalTrainerService personalTrainerService, FatturaService fatturaService, AcquistoService acquistoService, AtletaService atletaService) {
-        this.pacchettoService = pacchettoService;
-        this.categoriaService = categoriaService;
+    public UtenzaControl(PersonalTrainerService personalTrainerService, FatturaService fatturaService, AcquistoService acquistoService, AtletaService atletaService) {
         this.personalTrainerService = personalTrainerService;
         this.fatturaService = fatturaService;
         this.acquistoService = acquistoService;
