@@ -28,6 +28,14 @@ public class CarrelloControl {
         this.atletaService = atletaService;
     }
 
+    /**
+     * Metodo utilizzato per aggiungere/rimuovere elementi dal carrello
+     * @param idPacchetto id del pacchetto da aggiungere al carrello
+     * @param azione azione che bisgona svolgere, si può trattare di aggiunta o modifica
+     * @param model
+     * @param req occorre per accedere ai dati dalla sessione
+     * @return una pagina con il carrello aggiornato
+     */
     @PostMapping("/carrello")
     public String aggiungiCarrello(@RequestParam("idPacchetto") int idPacchetto, @RequestParam("azione") String azione, Model model, HttpServletRequest req) {
         Carrello carrello = (Carrello) req.getSession().getAttribute("carrello");
@@ -44,6 +52,12 @@ public class CarrelloControl {
         return "View/carrello";
     }
 
+    /**
+     * Visualizzazione del carrello
+     * @param model
+     * @param req occorre per accedere ai dati dalla sessione
+     * @return una pagina con il carrello aggiornato
+     */
     @GetMapping("/carrello")
     public String mostraCarrello(Model model, HttpServletRequest req) {
         Carrello carrello = (Carrello) req.getSession().getAttribute("carrello");
@@ -60,6 +74,12 @@ public class CarrelloControl {
         return "View/carrello";
     }
 
+    /**
+     * Inizio della procedura di checkout
+     * @param model
+     * @param req
+     * @return una opagina in cui visualizzare la fattura ed aggiungere il metodo di pagamento
+     */
     @GetMapping("/checkout")
     public String checkout(Model model, HttpServletRequest req) {
         Atleta atletaAcquisto = (Atleta) req.getSession().getAttribute("atleta");
@@ -73,6 +93,14 @@ public class CarrelloControl {
         return "View/checkout";
     }
 
+    /**
+     * Dopo avere inserito la propria carta di credito viene salvata la fattura nel database e con essa tutti i singoli acquisiti dell'utente
+     * @param costo valore totale della fattura
+     * @param email email dell'atleta che ha effettuato il pagamento
+     * @param model
+     * @param req occorre per accedere ai dati dalla sessione
+     * @return visualizza l'area personale dell'utente
+     */
     @PostMapping("/nuovaFattura")
     public String nuovaFattura(@RequestParam("costo") float costo, @RequestParam("atleta") String email, Model model, HttpServletRequest req) {
         Fattura fattura = new Fattura(costo, atletaService.findByEmail(email));

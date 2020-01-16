@@ -153,4 +153,13 @@ public class Pacchetto {
         this.acquisti = acquisti;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Pacchetto that = (Pacchetto) o;
+
+        return (idPacchetto == that.getIdPacchetto());
+    }
 }
