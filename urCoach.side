@@ -1,0 +1,123 @@
+{
+  "id": "c08b03e7-64cd-46ae-b9fd-d794cf2e9470",
+  "version": "2.0",
+  "name": "urCoach",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "efe265f4-2567-43af-a1c5-7f50c61685ec",
+    "name": "RegistrazioneAtleta_Corretto",
+    "commands": [{
+      "id": "f3858f25-ce88-4f78-98cd-59b8b47dd142",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d16fff3e-5fa6-4309-84bb-c096f0308d85",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72044621-bb14-47a3-b532-b06054b97e1c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.icon > div:nth-child(2) > a",
+      "targets": [
+        ["css=.icon > div:nth-child(2) > a", "css:finder"],
+        ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#login')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fa0b141-7e6f-43d0-bcbe-e0e8a4e8da43",
+      "comment": "",
+      "command": "click",
+      "target": "id=usernameL",
+      "targets": [
+        ["id=usernameL", "id"],
+        ["name=usernameL", "name"],
+        ["css=#usernameL", "css:finder"],
+        ["xpath=//input[@id='usernameL']", "xpath:attributes"],
+        ["xpath=//div[@id='login']/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a12e03a-fcaa-4166-8d33-9cfe428fe2a5",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameL",
+      "targets": [
+        ["id=usernameL", "id"],
+        ["name=usernameL", "name"],
+        ["css=#usernameL", "css:finder"],
+        ["xpath=//input[@id='usernameL']", "xpath:attributes"],
+        ["xpath=//div[@id='login']/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "ciao"
+    }, {
+      "id": "f63bccbd-4840-47ba-8ec3-1cd96ad0b4c8",
+      "comment": "",
+      "command": "type",
+      "target": "id=passL",
+      "targets": [
+        ["id=passL", "id"],
+        ["name=passL", "name"],
+        ["css=#passL", "css:finder"],
+        ["xpath=//input[@id='passL']", "xpath:attributes"],
+        ["xpath=//div[@id='login']/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "ciao"
+    }, {
+      "id": "71fcd87d-28e1-4e14-8870-4c84c15e338e",
+      "comment": "",
+      "command": "click",
+      "target": "id=pt",
+      "targets": [
+        ["id=pt", "id"],
+        ["name=tipo", "name"],
+        ["css=#pt", "css:finder"],
+        ["xpath=//input[@id='pt']", "xpath:attributes"],
+        ["xpath=//div[@id='login']/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d9d15b2-15da-48d6-bde7-d794369a8a4c",
+      "comment": "",
+      "command": "click",
+      "target": "id=submitL",
+      "targets": [
+        ["id=submitL", "id"],
+        ["css=#submitL", "css:finder"],
+        ["xpath=//input[@id='submitL']", "xpath:attributes"],
+        ["xpath=//div[@id='login']/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aecf2e21-4703-4abd-b04a-e5e244ff4af6",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f48b4cfa-d34f-4f59-a426-bd912204d570",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["efe265f4-2567-43af-a1c5-7f50c61685ec"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
