@@ -9,4 +9,5 @@ before_install:
 script:
   - mvn verify
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn jacoco:report
+  - bash <(curl -s https://codecov.io/bash) -t 24de1408-eb5d-41e4-b4fe-5fcf786e7043
