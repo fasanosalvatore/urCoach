@@ -5863,6 +5863,121 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "13753e80-524f-4a56-90f8-1e2bea1aabe9",
+    "name": "FiltroServiziPerCategoria_Selezionato",
+    "commands": [{
+      "id": "fbcf3b12-f028-44e9-a210-7bc6a8b7f7ec",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31058824-b78a-45a7-9547-be80a13e26d6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "198c9c0d-34cb-44b9-a31f-7dd2581faa2f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center-md > li:nth-child(2) > a",
+      "targets": [
+        ["css=.center-md > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Pacchetti')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/pacchetti')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f69c58c8-00b4-4fa7-8d43-75272ce703db",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > input",
+      "targets": [
+        ["css=div:nth-child(3) > input", "css:finder"],
+        ["xpath=(//input[@name='nomeTrainer'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e7b7db6c-81cc-4c71-9627-ef0ec6b9a26f",
+    "name": "FiltroServiziPerPrezzo_Selezionato",
+    "commands": [{
+      "id": "0de56d3f-d433-4713-b9d6-9cc4c139452e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0fd1e06-f1b7-4272-8724-fe31ac923032",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "411aad2b-05e3-4650-b59a-c075985e8de6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center-md > li:nth-child(2) > a",
+      "targets": [
+        ["css=.center-md > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Pacchetti')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/pacchetti')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3532bebe-3112-4c8f-a348-6207d25138d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(12) > input",
+      "targets": [
+        ["css=div:nth-child(12) > input", "css:finder"],
+        ["xpath=(//input[@name='costo'])[4]", "xpath:attributes"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "262459af-6aff-402d-921a-0063c4e32fb9",
+    "name": "FiltroServiziPerPersonalTrainer",
+    "commands": [{
+      "id": "fea42876-3b97-433d-ae7a-768694d0a9c5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a835eeb1-e744-43b4-9543-92d40ce1674f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e2334fd-5f8d-40cb-99e2-4e1aa5c49ddf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center-md > li:nth-child(3) > a",
+      "targets": [
+        ["css=.center-md > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Trainers')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/trainers')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "1834f36e-7f6f-4b64-8efe-e6131d4eea66",
