@@ -8602,6 +8602,61 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "e6cf54dd-df80-4f02-8a40-37650b8d1e80",
+    "name": "VisualizzazioneOrdiniGlobale_Vuoto",
+    "commands": [{
+      "id": "bc6dc4b0-cd07-429e-aa38-54cbdeedf903",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Ordini')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ordini')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2643b15b-a737-44aa-ab89-4f1ca35fb3d4",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "991efa78-8ea5-48ee-ab35-2d4be1a74a9d",
+    "name": "VisualizzazioneOrdiniGlobale_NonVuoto",
+    "commands": [{
+      "id": "a0b29ff5-252c-4f28-9ba5-d4b06ba9abdd",
+      "comment": "",
+      "command": "click",
+      "target": "css=ul:nth-child(2) > li:nth-child(1) > a",
+      "targets": [
+        ["css=ul:nth-child(2) > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Acquisti')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/ordini')])[2]", "xpath:href"],
+        ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70f4ca14-9c1c-4ad7-8779-cfd32fada717",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "1834f36e-7f6f-4b64-8efe-e6131d4eea66",
