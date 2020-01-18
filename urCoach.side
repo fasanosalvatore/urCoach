@@ -5978,6 +5978,825 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "c24e8d53-263e-4cf2-b6bd-62dc46729a7d",
+    "name": "VisualizzazioneStoricoOrdiniEffettuati_Vuoto",
+    "commands": []
+  }, {
+    "id": "66d5491a-d930-445a-a627-e35d1b4b2f25",
+    "name": "VisualizzazioneStoricoOrdiniEffettuati_ConFattura",
+    "commands": [{
+      "id": "fd48dac1-7c3d-45e7-8a4d-f1e4a8329087",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff78ccf2-681c-4977-8880-e0d03119ecdb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ad9b721-6c47-48d4-b217-929a2132001f",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a7a188a-3d94-4fb7-8105-bf541f1f0de2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(1) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Ordini Effettuati')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/areaPersonale')])[2]", "xpath:href"],
+        ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "31c89d71-c233-4fbf-9ddb-7a232b657513",
+    "name": "ModificaAtleta_Giusto",
+    "commands": [{
+      "id": "2aa0eeb5-8010-44f1-8531-1d37a92f08ba",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef8da9f6-ef69-4b38-9605-fdfcad049913",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15e1d540-94c0-4761-9349-c5170fb46ebb",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3b955b6-d7d3-40c3-8e83-af27b1b34739",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d40feb2-2363-45b7-82ff-ec0017add537",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=email", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a887c08e-e225-4df4-a7c1-4af6d63e821b",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=email", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6d400f5-f969-4643-a186-fe13ee6edccd",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=email", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "toniacandela@hotmail.it"
+    }, {
+      "id": "fc7181af-2fd3-4a09-b748-b67ad9e222a6",
+      "comment": "",
+      "command": "click",
+      "target": "id=cf",
+      "targets": [
+        ["id=cf", "id"],
+        ["name=codiceFiscale", "name"],
+        ["css=#cf", "css:finder"],
+        ["xpath=//input[@id='cf']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "696863b1-95f2-4fd4-b8bc-8e71057ad513",
+      "comment": "",
+      "command": "type",
+      "target": "id=cf",
+      "targets": [
+        ["id=cf", "id"],
+        ["name=codiceFiscale", "name"],
+        ["css=#cf", "css:finder"],
+        ["xpath=//input[@id='cf']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "CNDTNO98C43A419B"
+    }, {
+      "id": "144b652d-faac-48a3-a72f-bb595184deeb",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72a612e1-2b8b-4196-acc7-73ff25200089",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Toniaa"
+    }, {
+      "id": "ba29fc9b-6362-45a2-bff5-7b81a719324e",
+      "comment": "",
+      "command": "click",
+      "target": "id=cognome",
+      "targets": [
+        ["id=cognome", "id"],
+        ["name=cognome", "name"],
+        ["css=#cognome", "css:finder"],
+        ["xpath=//input[@id='cognome']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67deb656-8d56-436c-920b-d1f6615f89ab",
+      "comment": "",
+      "command": "type",
+      "target": "id=cognome",
+      "targets": [
+        ["id=cognome", "id"],
+        ["name=cognome", "name"],
+        ["css=#cognome", "css:finder"],
+        ["xpath=//input[@id='cognome']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "Candel"
+    }, {
+      "id": "4751121f-e559-4151-83d8-61ff4f7b0705",
+      "comment": "",
+      "command": "click",
+      "target": "id=dataNascita",
+      "targets": [
+        ["id=dataNascita", "id"],
+        ["name=dataNascita", "name"],
+        ["css=#dataNascita", "css:finder"],
+        ["xpath=//input[@id='dataNascita']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "965206b2-3168-46e2-8eee-aba9483193a2",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataNascita",
+      "targets": [
+        ["id=dataNascita", "id"],
+        ["name=dataNascita", "name"],
+        ["css=#dataNascita", "css:finder"],
+        ["xpath=//input[@id='dataNascita']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c39e8c59-181b-40af-9b11-ee3bd7b2acb3",
+      "comment": "",
+      "command": "click",
+      "target": "id=pass",
+      "targets": [
+        ["id=pass", "id"],
+        ["name=password", "name"],
+        ["css=#pass", "css:finder"],
+        ["xpath=//input[@id='pass']", "xpath:attributes"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ade455f-eaf0-485c-b678-b6f13a697c56",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass",
+      "targets": [
+        ["id=pass", "id"],
+        ["name=password", "name"],
+        ["css=#pass", "css:finder"],
+        ["xpath=//input[@id='pass']", "xpath:attributes"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "Tonia1998"
+    }, {
+      "id": "16f4e7ac-9fbc-4f51-a245-e5ebcc53258d",
+      "comment": "",
+      "command": "click",
+      "target": "id=indF",
+      "targets": [
+        ["id=indF", "id"],
+        ["name=indirizzoFatturazione", "name"],
+        ["css=#indF", "css:finder"],
+        ["xpath=//input[@id='indF']", "xpath:attributes"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8213f10c-c90c-469f-ae49-9b249857093c",
+      "comment": "",
+      "command": "type",
+      "target": "id=indF",
+      "targets": [
+        ["id=indF", "id"],
+        ["name=indirizzoFatturazione", "name"],
+        ["css=#indF", "css:finder"],
+        ["xpath=//input[@id='indF']", "xpath:attributes"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "via Bellini 9"
+    }, {
+      "id": "b58f1122-33c7-466e-a797-3878ee7940b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c653386-1164-4d18-a1d5-fbae981200a1",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataNascita",
+      "targets": [
+        ["id=dataNascita", "id"],
+        ["name=dataNascita", "name"],
+        ["css=#dataNascita", "css:finder"],
+        ["xpath=//input[@id='dataNascita']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "1998-03-03"
+    }, {
+      "id": "a2aa0b8a-144a-4945-8069-4fce9e14ec8b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.edit__form",
+      "targets": [
+        ["css=.edit__form", "css:finder"],
+        ["xpath=//form[@action='/areaPersonale/modificaProfilo/salvaAtleta']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a8b9f9e-e560-4883-92a7-463361370924",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1dea54f8-8ea1-4688-a683-0637dd31f3e3",
+    "name": "ModificaAtleta_NomeErrato",
+    "commands": [{
+      "id": "5d2843db-c227-4eca-9761-9356d024331b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ec857b1-b672-42ee-a683-336ff6a65fb2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcf45cb1-3709-44c9-a314-63cf7bcf3d84",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e746964e-58d2-4d66-ab0a-59745874d36e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20936901-19af-43b1-bef4-08f67dffae1b",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfbc9d5e-2e1f-4ad2-9738-64a3d24527f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "S"
+    }, {
+      "id": "75a99d36-8612-448e-852f-73a625954fb8",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "152224ad-ae68-4f13-98da-1ee0720604b9",
+    "name": "ModificaAtleta_CognomeErrato",
+    "commands": [{
+      "id": "450c4a52-5dc5-4254-a27f-0c30f512ffbe",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bda148d6-6ff8-40eb-b066-099c00255f11",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23103306-c377-45f0-91f2-ef982a4a52a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed2d03a8-27d4-437b-8985-aeb252028ea7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f10edd0a-7d99-42d7-b36b-9e1c69407b5b",
+      "comment": "",
+      "command": "click",
+      "target": "id=cognome",
+      "targets": [
+        ["id=cognome", "id"],
+        ["name=cognome", "name"],
+        ["css=#cognome", "css:finder"],
+        ["xpath=//input[@id='cognome']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc1d6424-2ad5-49de-8d00-c41f53d4fb7a",
+      "comment": "",
+      "command": "type",
+      "target": "id=cognome",
+      "targets": [
+        ["id=cognome", "id"],
+        ["name=cognome", "name"],
+        ["css=#cognome", "css:finder"],
+        ["xpath=//input[@id='cognome']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "#Fasano"
+    }, {
+      "id": "9b379807-bff0-4577-8f66-42efed3a5c18",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d26252d8-3276-4a51-bdf1-ad206bce0ef9",
+    "name": "ModificaAtleta_PasswordErrata",
+    "commands": [{
+      "id": "3068eb56-305b-4003-8fff-08584effc87d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "efe01428-887b-4dbc-add4-07231d4c9ade",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ccf6a49-2681-4e3a-b2c7-39df6ebe7e24",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63955bec-ae65-47ac-ba2e-dd7dccf965ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b372e2c-ae22-4688-81b2-ad7456a18f56",
+      "comment": "",
+      "command": "click",
+      "target": "id=pass",
+      "targets": [
+        ["id=pass", "id"],
+        ["name=password", "name"],
+        ["css=#pass", "css:finder"],
+        ["xpath=//input[@id='pass']", "xpath:attributes"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d42355c-1bfe-4f95-8a5d-6a8eca47a6fa",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass",
+      "targets": [
+        ["id=pass", "id"],
+        ["name=password", "name"],
+        ["css=#pass", "css:finder"],
+        ["xpath=//input[@id='pass']", "xpath:attributes"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "Sara*"
+    }, {
+      "id": "fac79e26-e7fa-49f1-8ad4-98a01b86b4d5",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8afa3590-9010-4097-8c8c-b99c186d779a",
+    "name": "ModificaAtleta_IndirizzoErrato",
+    "commands": [{
+      "id": "d11f01e6-2438-4522-bf6a-972c1a08d52c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80b8d87a-48ed-4712-80c1-557efef9f26c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d50ecbca-9e88-472f-8611-1e2282071889",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfb2ef64-19fb-4921-8781-4abbdc6a1857",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38433712-1483-444e-becd-258d892b9604",
+      "comment": "",
+      "command": "click",
+      "target": "id=indF",
+      "targets": [
+        ["id=indF", "id"],
+        ["name=indirizzoFatturazione", "name"],
+        ["css=#indF", "css:finder"],
+        ["xpath=//input[@id='indF']", "xpath:attributes"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07a42b95-d165-4155-9be5-a7981a280852",
+      "comment": "",
+      "command": "type",
+      "target": "id=indF",
+      "targets": [
+        ["id=indF", "id"],
+        ["name=indirizzoFatturazione", "name"],
+        ["css=#indF", "css:finder"],
+        ["xpath=//input[@id='indF']", "xpath:attributes"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": " 9"
+    }, {
+      "id": "ad8c65e2-1c12-4e26-9f45-37b0b03b8647",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fc9c42b0-80a2-4c8e-8fb9-56f1d155487f",
+    "name": "ModificaAtleta_CFErrato",
+    "commands": [{
+      "id": "1e1ce320-631e-42ee-a274-2e07f83cde76",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd7a5a8a-6cf7-449f-8d32-f3f947d88e1d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c8ecf350-78df-4997-8708-2ab430d975ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac2ada89-7031-44e8-82ec-df98aebdff87",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d46aea8c-3e24-4ae2-8352-3a54c422ad4b",
+      "comment": "",
+      "command": "click",
+      "target": "id=cf",
+      "targets": [
+        ["id=cf", "id"],
+        ["name=codiceFiscale", "name"],
+        ["css=#cf", "css:finder"],
+        ["xpath=//input[@id='cf']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dab56f4-0d96-4c15-a1f4-77d8e066a03c",
+      "comment": "",
+      "command": "type",
+      "target": "id=cf",
+      "targets": [
+        ["id=cf", "id"],
+        ["name=codiceFiscale", "name"],
+        ["css=#cf", "css:finder"],
+        ["xpath=//input[@id='cf']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "CNDTNO98C43A41B"
+    }, {
+      "id": "d058b717-6a5a-4406-b1cd-e641e4be43d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3c285616-be3d-42c2-93f3-8c034fa24da4",
+    "name": "ModificaAtleta_EmailErrata",
+    "commands": [{
+      "id": "1151c44c-e38c-452d-86ce-463fda386524",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "622974ac-fc52-42e4-af6c-ceed639050e3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "035dea83-3d66-45cc-a5c7-1525931c525a",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c20afa6-9044-405e-87c7-58269155b168",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifica Profilo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/modificaProfilo')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19438813-aa68-4c12-af8a-3b2a50e53426",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=email", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6182379a-0643-416a-8940-f008649774dc",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=email", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "toniacandelahotmail.it"
+    }, {
+      "id": "5700b57d-3a96-4b91-b667-5fdbaabdf9bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "1834f36e-7f6f-4b64-8efe-e6131d4eea66",
