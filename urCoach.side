@@ -5118,6 +5118,573 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "75c567b1-44b4-4a7f-a7fb-9f42aa0a0a81",
+    "name": "AggiuntaPacchetto_Giusto",
+    "commands": [{
+      "id": "c171a2b6-63c8-4bbd-aa32-644509a57b5f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24afaf21-c9c9-4ae1-87bf-219774ae6cd3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "970e3f45-dae1-47dc-9b61-d887e59be4c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "feb240e0-46e6-4425-9ef0-dc68f1341996",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestione Pacchetti')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3430840-a9ad-4236-9649-55c64113d467",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(1)",
+      "targets": [
+        ["css=.button:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aggiungi Pacchetto')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti?azione=nuovo')]", "xpath:href"],
+        ["xpath=//main/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "882467a4-c0e1-46ef-9afd-629d9388e1f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b5ee481-b5c3-46b0-9d84-405d0f4b6147",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "FitMe"
+    }, {
+      "id": "5b33779b-7c30-4a15-bcf0-56f2d81ceb42",
+      "comment": "",
+      "command": "click",
+      "target": "id=costo",
+      "targets": [
+        ["id=costo", "id"],
+        ["name=costo", "name"],
+        ["css=#costo", "css:finder"],
+        ["xpath=//input[@id='costo']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "548d8b61-7e8e-401a-93aa-080925174cba",
+      "comment": "",
+      "command": "type",
+      "target": "id=costo",
+      "targets": [
+        ["id=costo", "id"],
+        ["name=costo", "name"],
+        ["css=#costo", "css:finder"],
+        ["xpath=//input[@id='costo']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "100.0"
+    }, {
+      "id": "42d22790-16eb-44ba-a469-cb5594efc94d",
+      "comment": "",
+      "command": "click",
+      "target": "id=durata",
+      "targets": [
+        ["id=durata", "id"],
+        ["name=durata", "name"],
+        ["css=#durata", "css:finder"],
+        ["xpath=//input[@id='durata']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ab0f324-825f-4563-af36-411c63899588",
+      "comment": "",
+      "command": "type",
+      "target": "id=durata",
+      "targets": [
+        ["id=durata", "id"],
+        ["name=durata", "name"],
+        ["css=#durata", "css:finder"],
+        ["xpath=//input[@id='durata']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "6"
+    }, {
+      "id": "878d8ab4-0f88-47fc-90f4-6c0bc7efd2dd",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=categoria",
+      "targets": [
+        ["id=categoria", "id"],
+        ["name=categoria", "name"],
+        ["css=#categoria", "css:finder"],
+        ["xpath=//select[@id='categoria']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Definizione')]", "xpath:innerText"]
+      ],
+      "value": "-179.60000610351562,-444.45001220703125"
+    }, {
+      "id": "1f4b5bfd-e142-45cb-8949-25bc5d0739cc",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=categoria",
+      "targets": [
+        ["id=categoria", "id"],
+        ["name=categoria", "name"],
+        ["css=#categoria", "css:finder"],
+        ["xpath=//select[@id='categoria']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Definizione')]", "xpath:innerText"]
+      ],
+      "value": "-179.60000610351562,-444.45001220703125"
+    }, {
+      "id": "a6fad8bb-45a5-450b-b614-c6b8faca5a42",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=categoria",
+      "targets": [
+        ["id=categoria", "id"],
+        ["name=categoria", "name"],
+        ["css=#categoria", "css:finder"],
+        ["xpath=//select[@id='categoria']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Definizione')]", "xpath:innerText"]
+      ],
+      "value": "-179.60000610351562,-444.45001220703125"
+    }, {
+      "id": "7ac33c96-dd2b-4804-bcf0-d0fbb38015a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=categoria",
+      "targets": [
+        ["id=categoria", "id"],
+        ["name=categoria", "name"],
+        ["css=#categoria", "css:finder"],
+        ["xpath=//select[@id='categoria']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Definizione')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6193557-61d1-48d1-983f-a58f33c2f3fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=option",
+      "targets": [
+        ["css=option", "css:finder"],
+        ["xpath=//option[@value='Definizione']", "xpath:attributes"],
+        ["xpath=//select[@id='categoria']/option", "xpath:idRelative"],
+        ["xpath=//option", "xpath:position"],
+        ["xpath=//option[contains(.,'Definizione')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "952f3a25-5830-4241-bde0-59446783e600",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(12)",
+      "targets": [
+        ["css=.button:nth-child(12)", "css:finder"],
+        ["xpath=//input[@value='Invia']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "06fc172e-bee4-40d0-bbb7-e87700d0214a",
+    "name": "AggiuntaPacchetto_NomeErrato",
+    "commands": [{
+      "id": "04143f4f-c17c-40b9-9db0-033340817275",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "78252802-ed89-4ac8-98fe-55d503d74a03",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "45011c25-d770-4ab5-ba23-add3b47dee4d",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27c67dbe-0850-4b64-97c9-6fcbf27ddc23",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestione Pacchetti')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87451a6e-1dc4-4b28-a0ab-2c0f56b2f482",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-2 > .button",
+      "targets": [
+        ["css=.col-md-2 > .button", "css:finder"],
+        ["xpath=//a[contains(text(),'Aggiungi Pacchetto')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti?azione=nuovo')]", "xpath:href"],
+        ["xpath=//main/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b3ee046-7271-4779-8838-ed6a231aa3e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b7f6d22-7b8d-473b-a7aa-fba12da18b03",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "F"
+    }, {
+      "id": "d0943c4e-462b-4e91-b322-cbecbdd8eabd",
+      "comment": "",
+      "command": "type",
+      "target": "id=costo",
+      "targets": [
+        ["id=costo", "id"],
+        ["name=costo", "name"],
+        ["css=#costo", "css:finder"],
+        ["xpath=//input[@id='costo']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "8db3eeb2-1b85-4465-b4b6-31099653a325",
+      "comment": "",
+      "command": "type",
+      "target": "id=durata",
+      "targets": [
+        ["id=durata", "id"],
+        ["name=durata", "name"],
+        ["css=#durata", "css:finder"],
+        ["xpath=//input[@id='durata']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "6"
+    }, {
+      "id": "9f137358-5d0b-4999-8925-8d13ed0fa782",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(12)",
+      "targets": [
+        ["css=.button:nth-child(12)", "css:finder"],
+        ["xpath=//input[@value='Invia']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "73961409-e3b6-48a1-9ff2-625df8559ce0",
+    "name": "AggiuntaPacchetto_DurataErrata",
+    "commands": [{
+      "id": "aecfcc3f-ce0f-41a1-8ddc-dcadf55b9680",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dc8e5b70-d215-4ae5-975a-6d39a836ca89",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8550719f-4d11-44ca-898d-0ce47c6a1236",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19ba6b8b-69da-41de-a2aa-c69b7ae0c188",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestione Pacchetti')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ef35fd0-68ed-417c-95ef-11ff2817ff9a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-2 > .button",
+      "targets": [
+        ["css=.col-md-2 > .button", "css:finder"],
+        ["xpath=//a[contains(text(),'Aggiungi Pacchetto')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti?azione=nuovo')]", "xpath:href"],
+        ["xpath=//main/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e364d610-c82f-454d-a41d-b1478e82a98f",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa92b042-65ba-4463-a587-3bf248cb74a4",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "FitMe"
+    }, {
+      "id": "c5c32ed3-83e5-4c13-b1c2-7c443e155c76",
+      "comment": "",
+      "command": "type",
+      "target": "id=costo",
+      "targets": [
+        ["id=costo", "id"],
+        ["name=costo", "name"],
+        ["css=#costo", "css:finder"],
+        ["xpath=//input[@id='costo']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "876a9b71-d530-410c-959c-b4d87f41ed3f",
+      "comment": "",
+      "command": "type",
+      "target": "id=durata",
+      "targets": [
+        ["id=durata", "id"],
+        ["name=durata", "name"],
+        ["css=#durata", "css:finder"],
+        ["xpath=//input[@id='durata']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "13"
+    }, {
+      "id": "ba1c6ea4-c28c-4872-9ae2-d00626ae556e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(12)",
+      "targets": [
+        ["css=.button:nth-child(12)", "css:finder"],
+        ["xpath=//input[@value='Invia']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "08ee27f1-55cd-4565-88c5-20930dd6e8a1",
+    "name": "AggiuntaPacchetto_CostoErrato",
+    "commands": [{
+      "id": "8e6f7ddb-1685-44a3-a619-24b68a104c65",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6d9b0349-8991-4486-bc5c-9344031c4c7f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "858d599b-69b1-4b86-b836-980e112b8fbd",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dffe751-3fd0-4589-9741-7c457ff783d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestione Pacchetti')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a610fca8-18f5-4b28-8468-66cf5f2d9520",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-2 > .button",
+      "targets": [
+        ["css=.col-md-2 > .button", "css:finder"],
+        ["xpath=//a[contains(text(),'Aggiungi Pacchetto')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/areaPersonale/gestionePacchetti?azione=nuovo')]", "xpath:href"],
+        ["xpath=//main/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58477a25-1ab5-4b0f-a780-aea39c8eaa96",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93f2f8c7-8840-41dd-a4e2-717638d9dea2",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["name=nome", "name"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "FitMe"
+    }, {
+      "id": "43f44799-b44f-4d99-8f2e-92b50d801a0d",
+      "comment": "",
+      "command": "type",
+      "target": "id=costo",
+      "targets": [
+        ["id=costo", "id"],
+        ["name=costo", "name"],
+        ["css=#costo", "css:finder"],
+        ["xpath=//input[@id='costo']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "25555"
+    }, {
+      "id": "0902c27c-e06b-4b20-aa23-789421326863",
+      "comment": "",
+      "command": "type",
+      "target": "id=durata",
+      "targets": [
+        ["id=durata", "id"],
+        ["name=durata", "name"],
+        ["css=#durata", "css:finder"],
+        ["xpath=//input[@id='durata']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "6"
+    }, {
+      "id": "2747178b-3d2f-4170-bbc0-0d823d711d34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(12)",
+      "targets": [
+        ["css=.button:nth-child(12)", "css:finder"],
+        ["xpath=//input[@value='Invia']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "1834f36e-7f6f-4b64-8efe-e6131d4eea66",
