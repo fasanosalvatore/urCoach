@@ -5960,7 +5960,7 @@
     }]
   }, {
     "id": "0389b8d2-54a8-40c2-b92a-87d0ec476f5f",
-    "name": "VisualizzazioneCarrello",
+    "name": "VisualizzazioneCarrello_Vuoto",
     "commands": [{
       "id": "d453cee8-fd98-433f-888d-b84dcc06d6d8",
       "comment": "",
@@ -5986,10 +5986,21 @@
         ["xpath=//div[2]/a/img", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "54e4b7e5-89ea-4578-b73c-869768f3a174",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'FitMe')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "86382873-97cd-4212-845d-ad21872efb8e",
-    "name": "VisualizzazioneCatalogo",
+    "name": "VisualizzazioneCatalogo_Vuoto",
     "commands": [{
       "id": "beedc406-b330-496b-bda7-73cc5f1e7026",
       "comment": "",
@@ -6015,6 +6026,17 @@
         ["xpath=//header[@id='header']/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/pacchetti')]", "xpath:href"],
         ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "154e7382-11da-4efe-8cf8-fe698a850d0a",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=div:nth-child(6) img",
+      "targets": [
+        ["css=div:nth-child(6) img", "css:finder"],
+        ["xpath=//div[@id='here']/div[6]/div/div/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/img", "xpath:position"]
       ],
       "value": ""
     }]
@@ -6224,7 +6246,7 @@
     }]
   }, {
     "id": "66d5491a-d930-445a-a627-e35d1b4b2f25",
-    "name": "VisualizzazioneStoricoOrdiniEffettuati",
+    "name": "VisualizzazioneStoricoOrdiniEffettuati_NonVuoto",
     "commands": [{
       "id": "fd48dac1-7c3d-45e7-8a4d-f1e4a8329087",
       "comment": "",
@@ -7863,7 +7885,7 @@
     }]
   }, {
     "id": "11a9a614-61e9-4f05-8d6d-191b539e339a",
-    "name": "VisualizzazioneStoricoVenditeEffettuate",
+    "name": "VisualizzazioneStoricoVenditeEffettuate_Vuoto",
     "commands": [{
       "id": "6c16e748-9393-4835-9c80-2c2b0e2c7251",
       "comment": "",
@@ -7917,9 +7939,13 @@
     }, {
       "id": "d914c129-b991-43ed-aff2-230b455fad44",
       "comment": "",
-      "command": "",
-      "target": "",
-      "targets": [],
+      "command": "assertElementNotPresent",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
+      ],
       "value": ""
     }]
   }, {
@@ -8383,6 +8409,196 @@
         ["css=.edit__form li", "css:finder"],
         ["xpath=//div/ul/li", "xpath:position"],
         ["xpath=//li[contains(.,'Il costo ha un formato non valido')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e63b771c-d536-4e9d-bd09-d1884580369b",
+    "name": "VisualizzazioneCarrello_NonVuoto",
+    "commands": [{
+      "id": "ecbbb1a4-e52d-45f5-97f9-40d9220520b6",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f1041c19-4cd6-43b8-83e5-3ce0883748e7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50519631-6193-4f26-8301-e4dca110b8d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cart--over img",
+      "targets": [
+        ["css=.cart--over img", "css:finder"],
+        ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88f03294-7e0b-4e4a-a430-78c70aa609ff",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'FitMe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "72e862ca-05fd-48af-afac-38a91d60e29a",
+    "name": "VisualizzazioneStoricoOrdiniEffettuati_Vuoto",
+    "commands": [{
+      "id": "de820817-d275-463a-aeae-4308bf892670",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce07ed14-709a-4b38-9380-a6827aef826e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da988d1e-bf1a-4903-b4f7-4416ecd62ca2",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7066b676-a85b-4670-8409-6f99c905d8a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(1) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Ordini Effettuati')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/areaPersonale')])[2]", "xpath:href"],
+        ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c16308b-8bb2-4ed5-9e14-11e4ba0b152e",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cbe330a9-c22f-4b86-a4d0-0acc63acd88a",
+    "name": "VisualizzazioneStoricoVenditeEffettuate_NonVuoto",
+    "commands": [{
+      "id": "25694505-a7a0-444c-bf30-d999c653dcfb",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4bee52f1-a7ad-476f-9df6-bcf2a3750416",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52ff2e2c-0122-43c5-bf5a-f2e37a0596b6",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > a",
+      "targets": [
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Area Personale')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/areaPersonale')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ceba3bbc-a3cd-478a-a6ea-1dda64745714",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(1) > a",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Vendite Effettuate')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/areaPersonale')])[2]", "xpath:href"],
+        ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c73210fd-526f-4648-aac0-a86f17eaa050",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6b316f39-e5c6-4aac-a4c7-68ecb9ab2ee1",
+    "name": "VisualizzazioneCatalogo_NonVuoto",
+    "commands": [{
+      "id": "a50e3ba1-ea75-4853-8c94-1df50ee3aa09",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "626e1403-0fac-48b0-b534-cd2a05029d8e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2859d080-94be-45ea-a6c4-5e08a73ca948",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center-md > li:nth-child(2) > a",
+      "targets": [
+        ["css=.center-md > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Pacchetti')]", "xpath:link"],
+        ["xpath=//header[@id='header']/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/pacchetti')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "346aee40-9c39-42ad-96fe-48b62f1dd3c6",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=div:nth-child(6) img",
+      "targets": [
+        ["css=div:nth-child(6) img", "css:finder"],
+        ["xpath=//div[@id='here']/div[6]/div/div/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/img", "xpath:position"]
       ],
       "value": ""
     }]
