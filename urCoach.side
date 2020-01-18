@@ -288,6 +288,18 @@
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e17625ed-0dd6-4fea-aaf6-75d9e6c95bf0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "afd9eba6-4825-4403-93eb-046d533a8fcf",
@@ -560,6 +572,18 @@
         ["xpath=//input[@id='us']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ff8c9cd-b3d5-4944-8e27-5079e745ada6",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -836,6 +860,18 @@
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "38ad547a-bc97-4eb8-9180-a44b6ea6fb85",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il cognome non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il cognome non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "0d0ee04d-331b-4871-9945-cf7c069487c2",
@@ -1107,6 +1143,18 @@
         ["xpath=//input[@id='us']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "554cc88c-1c5b-4938-8375-d6cd645bf691",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -1381,6 +1429,18 @@
         ["xpath=//input[@id='us']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c585ec69-6fe0-4c30-a2e7-63d32c6ba187",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lindirizzo di fatturazione non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lindirizzo di fatturazione non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -1667,6 +1727,18 @@
         ["xpath=//input[@id='us']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffa6cc39-99dd-45fa-8697-40597cc45043",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lemail non rispecchia il formato')]",
+      "targets": [
+        ["css=#reg_form_atleta li", "css:finder"],
+        ["xpath=//form[@id='reg_form_atleta']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lemail non rispecchia il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -2286,6 +2358,18 @@
         ["xpath=//div[2]/a/img", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "a63e0bb4-1513-4858-9c5f-f5cac58e39b0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "26b3cbd5-eec8-46f0-869e-fdc5d2b9ab95",
@@ -2392,6 +2476,18 @@
         ["css=div:nth-child(2) > a > img", "css:finder"],
         ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a/img", "xpath:idRelative"],
         ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01493af7-3e65-4eac-8c58-6835852f9935",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -2650,6 +2746,18 @@
         ["xpath=//div[2]/a/img", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "39c99358-e4ef-46de-ab22-6095fb2c8fb8",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "2be0654c-f0bb-4d8c-920c-c78c1ae3672c",
@@ -2756,6 +2864,18 @@
         ["css=div:nth-child(2) > a > img", "css:finder"],
         ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a/img", "xpath:idRelative"],
         ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "484af878-279c-498b-af22-da56ce226451",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -3286,6 +3406,18 @@
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "3fd48db5-1bb8-477b-ae9b-9cc18777412b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lemail non rispecchia il formato')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lemail non rispecchia il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "ee34b8d8-ebc4-47c2-a8de-19b48e7fedb9",
@@ -3549,6 +3681,18 @@
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "304076dd-7b9f-41be-9d55-cf186b958f69",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "d69b7613-3caa-49bd-8ad1-01abbe5338c1",
@@ -3796,6 +3940,18 @@
         ["xpath=//input[@id='pti']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1035c903-eaf9-4530-a87e-5bf35ca64b21",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -4061,6 +4217,18 @@
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "ca6d55e7-fc4c-43c2-be41-d2b4e2f27d2c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il cognome non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il cognome non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "1d4bdcc3-644e-4da0-b143-e791714dfcb6",
@@ -4308,6 +4476,18 @@
         ["xpath=//input[@id='pti']", "xpath:attributes"],
         ["xpath=//div[@id='registrazione']/div/form/div/input", "xpath:idRelative"],
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48a3b5cd-cc71-4846-8cab-65d2e1fde49c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -4570,6 +4750,18 @@
         ["xpath=//div[3]/div/form/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "4c8ef4dd-c4e5-45b6-b824-70662b469994",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La partita IVA non rispetta il formato')]",
+      "targets": [
+        ["css=#reg_form_trainer li", "css:finder"],
+        ["xpath=//form[@id='reg_form_trainer']/div/ul/li", "xpath:idRelative"],
+        ["xpath=//form[2]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La partita IVA non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "43497d65-6a96-42b0-909a-918f63be0e6d",
@@ -4790,6 +4982,18 @@
         ["xpath=//div[2]/a/img", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "d1298b41-0515-44d1-8507-fb17c9fb9d45",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "fc0aacc2-7457-4113-812c-283c2d6f0ddf",
@@ -4897,6 +5101,18 @@
         ["css=div:nth-child(2) > a > img", "css:finder"],
         ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a/img", "xpath:idRelative"],
         ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30b74afd-c31d-43a5-87d7-60f8d0b163a1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -5008,6 +5224,18 @@
         ["xpath=//div[2]/a/img", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "d911d90d-c65c-4e2e-8fcd-7354127ca3f0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "893baa33-d686-469e-8558-f4c8addb5093",
@@ -5115,6 +5343,18 @@
         ["css=div:nth-child(2) > a > img", "css:finder"],
         ["xpath=//header[@id='header']/div/div/div[4]/div[2]/a/img", "xpath:idRelative"],
         ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fcf3d5f-01a3-47c0-ad4e-89e2aaa1a6f3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Username o password errati')]",
+      "targets": [
+        ["css=.popup__form > p:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='login']/div/form/p", "xpath:idRelative"],
+        ["xpath=//form/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Username o password errati')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -5448,6 +5688,17 @@
         ["xpath=//input[6]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "2af09ce1-56b2-4d72-b7be-48fba915845b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome ha un formato non valido')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome ha un formato non valido')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "73961409-e3b6-48a1-9ff2-625df8559ce0",
@@ -5566,6 +5817,17 @@
         ["xpath=//input[6]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "45fcb73d-ad3a-4b5c-9125-89bfe997851d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "08ee27f1-55cd-4565-88c5-20930dd6e8a1",
@@ -5682,6 +5944,17 @@
         ["css=.button:nth-child(12)", "css:finder"],
         ["xpath=//input[@value='Invia']", "xpath:attributes"],
         ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f589ec2b-b5a6-4e4e-b442-ffcbc85f8c8b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il costo ha un formato non valido')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il costo ha un formato non valido')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -5989,6 +6262,17 @@
         ["xpath=//a[contains(text(),'Ordini Effettuati')]", "xpath:link"],
         ["xpath=(//a[contains(@href, '/areaPersonale')])[2]", "xpath:href"],
         ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da5e7dd3-84a3-4ae0-bc79-ddeae5e88a03",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'2020-01-18')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -6358,6 +6642,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "111fd2ff-f8e5-418f-931b-1a3b883709e8",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "152224ad-ae68-4f13-98da-1ee0720604b9",
@@ -6437,6 +6732,17 @@
         ["css=#submit", "css:finder"],
         ["xpath=//input[@id='submit']", "xpath:attributes"],
         ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b602be91-725c-4563-982d-cc7341417061",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il cognome non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il cognome non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -6520,6 +6826,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "a46580d6-88e0-4aea-8b91-54db185d0d9e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "8afa3590-9010-4097-8c8c-b99c186d779a",
@@ -6599,6 +6916,17 @@
         ["css=#submit", "css:finder"],
         ["xpath=//input[@id='submit']", "xpath:attributes"],
         ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2153da11-139e-4cc9-bec5-e9124ab9a4b1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lindirizzo di fatturazione non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lindirizzo di fatturazione non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -6682,6 +7010,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "a1eb231d-32f9-4d21-a507-c6fefbaa0b60",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "3c285616-be3d-42c2-93f3-8c034fa24da4",
@@ -6763,6 +7102,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e1194a17-edde-4925-8370-437cf5dfb896",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lemail non rispecchia il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lemail non rispecchia il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "86b7622e-d315-425f-8741-0bb1e03d19e4",
@@ -6842,6 +7192,17 @@
         ["css=#submit", "css:finder"],
         ["xpath=//input[@id='submit']", "xpath:attributes"],
         ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbaac015-8724-43f4-8298-44c3349c2ab4",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -7120,6 +7481,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "21966904-4826-411f-8439-1841838afd4a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Lemail non rispecchia il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Lemail non rispecchia il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "22ee2ff8-bebe-4399-86eb-a0b4dc606c38",
@@ -7199,6 +7571,17 @@
         ["css=#submit", "css:finder"],
         ["xpath=//input[@id='submit']", "xpath:attributes"],
         ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8bc17e5-313a-4a90-b7cf-6b776a464920",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il cognome non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il cognome non rispetta il formato')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -7282,6 +7665,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "64d329ed-ed3d-45ca-8284-989371312f61",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il codice fiscale non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "88b3f006-3f7d-4007-90ab-537461bd624b",
@@ -7363,10 +7757,21 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "100fc958-b4b5-47e5-b25f-e302b1e88034",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La partita IVA non rispetta il formato')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La partita IVA non rispetta il formato')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "382319fa-8e74-481f-817e-359a56cc8fee",
-    "name": "ModificaPersonalTrainer_Password",
+    "name": "ModificaPersonalTrainer_PasswordErrata",
     "commands": [{
       "id": "fcbf5f39-bedf-4df8-a2e8-7f7e6929f4eb",
       "comment": "",
@@ -7444,6 +7849,17 @@
         ["xpath=//input[9]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "3e589d42-7f00-4f5b-8fef-d91381089c24",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.edit__form li",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La password è troppo debole, inserire almeno 5 caratteri')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "11a9a614-61e9-4f05-8d6d-191b539e339a",
@@ -7497,6 +7913,13 @@
         ["xpath=(//a[contains(@href, '/areaPersonale')])[2]", "xpath:href"],
         ["xpath=//aside/ul/li/a", "xpath:position"]
       ],
+      "value": ""
+    }, {
+      "id": "d914c129-b991-43ed-aff2-230b455fad44",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
       "value": ""
     }]
   }, {
@@ -7745,6 +8168,17 @@
         ["xpath=//input[6]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e1bb7482-9f9a-4e28-833b-a5e0f2656a69",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "114a0c1f-cc13-406c-8a19-bd0a2fa25057",
@@ -7837,6 +8271,17 @@
         ["xpath=//input[6]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "6552ad8a-0c53-4851-9fc6-28db478a6178",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il nome ha un formato non valido')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il nome ha un formato non valido')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "c7ebf477-6e6d-49fd-a706-0c856eec14a9",
@@ -7927,6 +8372,17 @@
         ["css=.button:nth-child(12)", "css:finder"],
         ["xpath=//input[@value='Invia']", "xpath:attributes"],
         ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f52f00ed-bc1e-491c-8604-b58b381334d3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//li[contains(.,'Il costo ha un formato non valido')]",
+      "targets": [
+        ["css=.edit__form li", "css:finder"],
+        ["xpath=//div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Il costo ha un formato non valido')]", "xpath:innerText"]
       ],
       "value": ""
     }]
