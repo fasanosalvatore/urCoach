@@ -4,10 +4,10 @@ services:
   - mysql
 before_install:
   - export TZ=Europe/Rome
+  - mysql -u root --default-character-set=utf8 < ddl.sql
+  - mysql -e "USE mysql; UPDATE user SET authentication_string=PASSWORD('salvatore') WHERE user='root'; FLUSH PRIVILEGES;"
   - cd src/urcoach
   - chmod +x mvnw
-before_script:
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('salvatore') WHERE user='root';\nFLUSH PRIVILEGES;\n"
 script:
   - mvn verify
 after_success:
