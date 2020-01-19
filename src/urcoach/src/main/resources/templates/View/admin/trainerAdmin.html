@@ -22,7 +22,7 @@
                     <td th:text="'0'"></td>
                     <td>
                         <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='verifica')}" th:if="${trainer.verificato==0}">Verifica</a>
-                        <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='invalida')}" th:unless="${trainer.verificato==0}">Invalida</a>
+                        <!--<a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='invalida')}" th:unless="${trainer.verificato==0}">Invalida</a>-->
                         <a class="button" th:href="@{/recruiter/gestioneTrainer(email=${trainer.email}, azione='rimuovi')}">Cancella</a></td>
                 </tr>
                 </tbody>

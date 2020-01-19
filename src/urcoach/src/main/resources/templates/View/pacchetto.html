@@ -9,7 +9,7 @@
             <div class="col-md-6">
                 <p th:text="'Nome Pacchetto: ' + ${p.nome}"/>
                 <p th:text="'Durata: ' + ${p.durata}+'week'"></p>
-                <p th:text="'Personal trainer: ' + ${p.personalTrainer.cognome} + ' ' + ${p.personalTrainer.cognome}"></p>
+                <p th:text="'Personal trainer: ' + ${p.personalTrainer.nome} + ' ' + ${p.personalTrainer.cognome}"></p>
                 <p th:text="'Categoria: ' + ${p.categoria.nome}"></p>
                 <p><b th:text="'Costo: ' + ${p.costo}+'€'"></b></p>
                 <form th:action="@{/carrello}" method="POST">

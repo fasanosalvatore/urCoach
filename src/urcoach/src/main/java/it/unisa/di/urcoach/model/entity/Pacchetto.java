@@ -24,7 +24,7 @@ public class Pacchetto {
     @DecimalMax(value = "12", message = "La durata ha un formato non valido, ricorda un pacchetto può durare max 12 mesi")
     private int durata;
     private String foto;
-    @Pattern(regexp = "\\b(\\w*Base|Intermedio|Avanazato\\w*)\\b", message = "La difficoltà non è valida")
+    @Pattern(regexp = "\\b(\\w*Base|Intermedio|Avanzato\\w*)\\b", message = "La difficoltà non è valida")
     private String difficolta;
     private Date dataCreazione;
     @Pattern(regexp = "^[A-Za-z ]{0,200}$", message = "La descrizione ha un formato non valido")

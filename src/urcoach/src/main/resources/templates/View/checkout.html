@@ -23,11 +23,21 @@
                 <p th:text="'TOTALE: ' + ${costo}+'€'"></p>
                 <p th:text="'TOTALE IVA: ' + ${costo*22/100}+'€'"></p>
                 <p th:text="'TOTALE FATTURA: ' + ${costo+costo*22/100}+'€'"></p>
-                <form th:action="@{/nuovaFattura}" method="post" th:with="val = (${session.get('carrello').getPrezzo()})">
+                <form th:action="@{/nuovaFattura}" method="post" th:with="val = (${session.get('carrello').getPrezzo()})" class="popup__form">
+                    <div style="color: red;" th:if="${errori} != null">
+                        <p><strong>Errori</strong></p>
+                        <ul>
+                            <li th:each="err : ${errori}" th:text="${err}"></li>
+                        </ul>
+                    </div>
                     <input type="hidden" name="costo" th:value="${val}" >
                     <input type="hidden" name="atleta" th:value="${session.get('atleta').getEmail()}">
                     <label for="cc">Carta di credito</label>
                     <input type="text" name="cc" id="cc" placeholder="0000 0000 0000 0000">
+                    <label for="dataScadenza">Data Scadenza</label>
+                    <input type="text" name="dataScadenza" id="dataScadenza" placeholder="MM/YYYY">
+                    <label for="cvc">CVC</label>
+                    <input type="text" name="cvc" id="cvc" placeholder="000">
                     <input type="submit" class="button" value="Effettuta l'acquisto">
                 </form>
             </div>

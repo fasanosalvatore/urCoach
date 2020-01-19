@@ -149,6 +149,7 @@
 				<version>2.22.0</version>
 				<configuration>
 					<argLine>
+						--enable-preview
 						--illegal-access=permit
 					</argLine>
 				</configuration>

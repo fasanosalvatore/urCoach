@@ -24,6 +24,12 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.web.servlet.FlashMap;
+
+import javax.servlet.http.HttpSession;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -169,8 +175,8 @@ class CarrelloControlTest {
         carrello.put(p1);
         mockMvc.perform(get("/checkout")
                 .sessionAttr("carrello", carrello))
-                .andExpect(status().isOk())
-                .andExpect(view().name("View/Error"));
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/carrello#login"));
     }
 
     @Test
@@ -191,7 +197,39 @@ class CarrelloControlTest {
     }
 
     @Test
-    void nuovaFattura() throws Exception{
+    void nuovaFattura_AllFieldFail() throws Exception{
+        Atleta a = new Atleta();
+        a.setEmail("salviofasano@gmail.com");
+        Pacchetto p1 = new Pacchetto();
+        p1.setIdPacchetto(1);
+        p1.setNome("Dimagrire in 100 giorni");
+        p1.setCosto(100);
+        Pacchetto p2 = new Pacchetto();
+        p1.setIdPacchetto(2);
+        p1.setNome("Massa in 100 giorni");
+        p1.setCosto(100);
+        Carrello carrello = new Carrello();
+        carrello.put(p1);
+        carrello.put(p2);
+        List<String> errori = new ArrayList<>();
+        errori.add("Il numero della carta di credito non rispetta il formato");
+        errori.add("La data di scadenza non rispetta il formato");
+        errori.add("Il cvc della carta di credito non rispetta il formato");
+        mockMvc.perform(post("/nuovaFattura")
+                .param("costo", "200")
+                .param("atleta", "salviofasano@gmail.com")
+                .param("cc", "")
+                .param("dataScadenza", "")
+                .param("cvc", "")
+                .sessionAttr("carrello", carrello))
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/checkout"))
+                .andExpect(flash().attribute("errori", errori));
+        verify(acquistoService, times(0)).save(any(Acquisto.class));
+    }
+
+    @Test
+    void nuovaFattura_Correct() throws Exception{
         Atleta a = new Atleta();
         a.setEmail("salviofasano@gmail.com");
         Pacchetto p1 = new Pacchetto();
@@ -208,8 +246,13 @@ class CarrelloControlTest {
         mockMvc.perform(post("/nuovaFattura")
                 .param("costo", "200")
                 .param("atleta", "salviofasano@gmail.com")
+                .param("cc", "5333171030866194")
+                .param("dataScadenza", "01/43")
+                .param("cvc", "123")
                 .sessionAttr("carrello", carrello))
-                .andExpect(redirectedUrl("/areaPersonale"));
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/areaPersonale"))
+                .andExpect(flash().attributeCount(0));
         verify(acquistoService, times(2)).save(any(Acquisto.class));
     }
 }

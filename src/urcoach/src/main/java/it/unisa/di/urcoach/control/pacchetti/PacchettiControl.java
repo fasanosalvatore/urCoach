@@ -66,7 +66,7 @@ public class PacchettiControl {
         return "View/pacchetti";
     }
 
-    @GetMapping(value = "/pacchetti/{id}")
+    @GetMapping("/pacchetti/{id}")
     public String showPacchetto(@PathVariable("id") int id, Model model) {
         Pacchetto pacchetto = pacchettoService.findById(id);
         model.addAttribute("p", pacchetto);

@@ -1,51 +1,50 @@
 package it.unisa.di.urcoach.control.utenza;
 
-import it.unisa.di.urcoach.control.pacchetti.PacchettiControl;
 import it.unisa.di.urcoach.model.entity.Atleta;
 import it.unisa.di.urcoach.model.entity.PersonalTrainer;
-import it.unisa.di.urcoach.model.service.*;
+import it.unisa.di.urcoach.model.service.AcquistoService;
+import it.unisa.di.urcoach.model.service.AtletaService;
+import it.unisa.di.urcoach.model.service.FatturaService;
+import it.unisa.di.urcoach.model.service.PersonalTrainerService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.expression.spel.SpelEvaluationException;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpSession;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.thymeleaf.exceptions.TemplateProcessingException;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
-
 import java.sql.Date;
 import java.util.Calendar;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.*;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(UtenzaControl.class)
+@Transactional
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
-class UtenzaControlTest {
+class UtenzaControlIT {
 
 
-    @MockBean
+    @Autowired
     PersonalTrainerService personalTrainerService;
-    @MockBean
+    @Autowired
     FatturaService fatturaService;
-    @MockBean
+    @Autowired
     AcquistoService acquistoService;
-    @MockBean
+    @Autowired
     AtletaService atletaService;
 
     @Autowired
@@ -56,7 +55,7 @@ class UtenzaControlTest {
         Atleta a = new Atleta();
         a.setEmail("salviofasano@gmail.com");
         a.setPassword("salvio");
-        when(atletaService.checkUser("salviofasano@gmail.com", "salvio")).thenReturn(a);
+        atletaService.save(a);
         HttpSession session = mockMvc.perform(post("/login")
                 .param("usernameL", "salviofasano@gmail.com")
                 .param("passL", "salvio")
@@ -70,7 +69,6 @@ class UtenzaControlTest {
 
     @Test
     void login_AtletaNoReg() throws Exception{
-        when(atletaService.checkUser("salviofasano@gmail.com", "salvio")).thenReturn(null);
         mockMvc.perform(post("/login")
                 .param("usernameL", "salviofasano@gmail.com")
                 .param("passL", "salvio")
@@ -82,24 +80,20 @@ class UtenzaControlTest {
 
     @Test
     void login_PT() throws Exception{
-        PersonalTrainer a = new PersonalTrainer();
-        a.setEmail("salviofasano@gmail.com");
-        a.setPassword("salvio");
-        when(personalTrainerService.checkUser("salviofasano@gmail.com", "salvio")).thenReturn(a);
         HttpSession session = mockMvc.perform(post("/login")
-                .param("usernameL", "salviofasano@gmail.com")
-                .param("passL", "salvio")
+                .param("usernameL", "ciao@ciao.it")
+                .param("passL", "ciao")
                 .param("tipo", "Trainer"))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/"))
                 .andReturn().getRequest().getSession();
         assertTrue((Boolean)session.getAttribute("logged"));
+        PersonalTrainer a = personalTrainerService.findByEmail("ciao@ciao.it");
         assertEquals((PersonalTrainer)session.getAttribute("trainer"), a);
     }
 
     @Test
     void login_PTNoReg() throws Exception{
-        when(personalTrainerService.checkUser("salviofasano@gmail.com", "salvio")).thenReturn(null);
         mockMvc.perform(post("/login")
                 .param("usernameL", "salviofasano@gmail.com")
                 .param("passL", "salvio")
@@ -130,9 +124,7 @@ class UtenzaControlTest {
 
     @Test
     void registrazioneTrainer_isPresent() throws Exception{
-        PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
-        PersonalTrainer ptnew = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Pasquale", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
-        when(personalTrainerService.findByEmail("salvatore@gmail.com")).thenReturn(pt);
+        PersonalTrainer ptnew = new PersonalTrainer("ciao@ciao.it", "FSNSVT98H02A024F", "Pasquale", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
         HttpSession session = mockMvc.perform(post("/registrazioneTrainer")
                 .flashAttr("trainer", ptnew))
                 .andExpect(status().isOk())
@@ -166,9 +158,7 @@ class UtenzaControlTest {
 
     @Test
     void registrazioneAtleta_isPresent() throws Exception{
-        Atleta a = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
-        Atleta anew = new Atleta("salvatore@gmail.com", "Pasquale", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
-        when(atletaService.findByEmail("salvatore@gmail.com")).thenReturn(a);
+        Atleta anew = new Atleta("ciao@sal.it", "Pasquale", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
         HttpSession session = mockMvc.perform(post("/registrazioneAtleta")
                 .flashAttr("atleta", anew))
                 .andExpect(status().isOk())
@@ -255,23 +245,23 @@ class UtenzaControlTest {
     @Test
     void deleteProfilo_Atleta() throws Exception{
         Atleta a = new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1");
+        atletaService.save(a);
         mockMvc.perform(get("/areaPersonale/profilo")
                 .sessionAttr("logged", true)
                 .sessionAttr("atleta", a))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/"));
-        verify(atletaService).deleteByEmail("salvatore@gmail.com");
     }
 
     @Test
     void deleteProfilo_Trainer() throws Exception{
         PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
+        personalTrainerService.save(pt);
         mockMvc.perform(get("/areaPersonale/profilo")
                 .sessionAttr("logged", true)
                 .sessionAttr("trainer", pt))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/"));
-        verify(personalTrainerService).deleteByEmail("salvatore@gmail.com");
     }
 
     @Test
@@ -381,8 +371,6 @@ class UtenzaControlTest {
     @WithMockUser("Salvatore")
     @Test
     void gestioneTrainer_Other() throws Exception{
-        PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
-        when(personalTrainerService.findByEmail("salvatore@gmail.com")).thenReturn(pt);
         mockMvc.perform(get("/recruiter/gestioneTrainer")
                 .param("email", "salvatore@gmail.com")
                 .param("azione", "ciao"))
@@ -394,39 +382,38 @@ class UtenzaControlTest {
     @Test
     void gestioneTrainer_Verifica() throws Exception{
         PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 0);
-        when(personalTrainerService.findByEmail("salvatore@gmail.com")).thenReturn(pt);
+        personalTrainerService.save(pt);
         mockMvc.perform(get("/recruiter/gestioneTrainer")
                 .param("email", "salvatore@gmail.com")
                 .param("azione", "verifica"))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/recruiter"));
-        assertEquals(1, pt.getVerificato());
+        assertEquals(1, personalTrainerService.findByEmail("salvatore@gmail.com").getVerificato());
     }
 
     @WithMockUser("Salvatore")
     @Test
     void gestioneTrainer_Invalida() throws Exception{
         PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 1);
-        when(personalTrainerService.findByEmail("salvatore@gmail.com")).thenReturn(pt);
+        personalTrainerService.save(pt);
         mockMvc.perform(get("/recruiter/gestioneTrainer")
                 .param("email", "salvatore@gmail.com")
                 .param("azione", "invalida"))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/recruiter"));
-        assertEquals(0, pt.getVerificato());
+        assertEquals(0, personalTrainerService.findByEmail("salvatore@gmail.com").getVerificato());
     }
 
     @WithMockUser("Salvatore")
     @Test
     void gestioneTrainer_Rimuovi() throws Exception{
         PersonalTrainer pt = new PersonalTrainer("salvatore@gmail.com", "FSNSVT98H02A024F", "Salvatore", "Fasano", new Date(Calendar.getInstance().getTime().getTime()), "Ciao1", "12345678901", "", 1);
-        when(personalTrainerService.findByEmail("salvatore@gmail.com")).thenReturn(pt);
+        personalTrainerService.save(pt);
         mockMvc.perform(get("/recruiter/gestioneTrainer")
                 .param("email", "salvatore@gmail.com")
                 .param("azione", "rimuovi"))
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/recruiter"));
-        verify(personalTrainerService).deleteByEmail("salvatore@gmail.com");
     }
 
     @WithMockUser("Tonia")

@@ -8,6 +8,7 @@ import it.unisa.di.urcoach.model.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,7 +79,10 @@ public class UtenzaControl {
     @PostMapping("/registrazioneTrainer")
     public String registrazioneTrainer(@Valid @ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(personalTrainerService.findByEmail(trainer.getEmail()) != null) {
-
+            bindingResult.addError(new FieldError("trainer", "email", trainer.getEmail(), false, null, null, "Personal Trainer già registrato con questa email!"));
+            Atleta atleta = new Atleta();
+            model.addAttribute("atleta", atleta);
+            model.addAttribute("trainer", trainer);
             return "View/index";
         }
         if(bindingResult.hasErrors()) {
@@ -97,7 +101,10 @@ public class UtenzaControl {
     @PostMapping("/registrazioneAtleta")
     public String registrazioneAtleta(@Valid @ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
         if(atletaService.findByEmail(atleta.getEmail()) != null) {
-
+            bindingResult.addError(new FieldError("atleta", "email", atleta.getEmail(), false, null, null, "Atleta già registrato con questa email!"));
+            PersonalTrainer trainer = new PersonalTrainer();
+            model.addAttribute("trainer", trainer);
+            model.addAttribute("atleta", atleta);
             return "View/index";
         }
         if(bindingResult.hasErrors()) {
