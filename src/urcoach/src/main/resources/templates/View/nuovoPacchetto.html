@@ -18,12 +18,20 @@
                 <input type="text" name="costo" id="costo" th:value="${pacchetto.costo}">
                 <label for="durata">Durata (settimane)</label>
                 <input type="text" name="durata" id="durata" th:value="${pacchetto.durata}">
-                <label for="fotop">Foto</label>
+                <!-- <label for="fotop">Foto</label> -->
                 <!-- <input type="file" name="foto" id="fotop" th:value="${pacchetto.foto}"> -->
                 <label for="categoria">Categoria</label>
                 <select name="categoria" id="categoria">
                     <option th:each="categoria : ${categorie}" th:value="${categoria.nome}" th:text="${categoria.nome}" th:selected="${pacchetto.categoria == null or categoria.nome != pacchetto.categoria.nome}"></option>
                 </select>
+                <label for="difficolta">Difficoltà</label>
+                <select name="difficolta" id="difficolta">
+                    <option value="Base" th:selected="${pacchetto.difficolta == null or pacchetto.difficolta != 'Base'}">Base</option>
+                    <option value="Intermedio" th:selected="${pacchetto.difficolta == null or pacchetto.difficolta != 'Intermedio'}">Intermedio</option>
+                    <option value="Avanzato" th:selected="${pacchetto.difficolta == null or pacchetto.difficolta != 'Avanzato'}">Avanzato</option>
+                </select>
+                <label for="descrizione">Descrizione</label>
+                <textarea name="descrizione" id="descrizione" th:text="${pacchetto.descrizione}"></textarea>
                 <input type="submit" value="Invia" class="button">
             </form>
         </main>

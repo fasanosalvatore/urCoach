@@ -77,6 +77,10 @@ public class UtenzaControl {
 
     @PostMapping("/registrazioneTrainer")
     public String registrazioneTrainer(@Valid @ModelAttribute("trainer") PersonalTrainer trainer, BindingResult bindingResult, Model model, HttpServletRequest req) {
+        if(personalTrainerService.findByEmail(trainer.getEmail()) != null) {
+
+            return "View/index";
+        }
         if(bindingResult.hasErrors()) {
             Atleta atleta = new Atleta();
             model.addAttribute("atleta", atleta);
@@ -92,6 +96,10 @@ public class UtenzaControl {
 
     @PostMapping("/registrazioneAtleta")
     public String registrazioneAtleta(@Valid @ModelAttribute("atleta") Atleta atleta, BindingResult bindingResult, Model model, HttpServletRequest req) {
+        if(atletaService.findByEmail(atleta.getEmail()) != null) {
+
+            return "View/index";
+        }
         if(bindingResult.hasErrors()) {
             PersonalTrainer trainer = new PersonalTrainer();
             model.addAttribute("trainer", trainer);
