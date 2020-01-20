@@ -28,7 +28,7 @@ public class FatturaServiceImpl implements FatturaService {
     }
 
     @Override
-    public void save(Fattura a) {
-        fatturaRepository.save(a);
+    public void save(Fattura f) {
+        fatturaRepository.save(f);
     }
 }
