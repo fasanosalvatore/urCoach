@@ -42,7 +42,7 @@ public class CarrelloControl {
      * @return una pagina con il carrello aggiornato
      */
     @PostMapping("/carrello")
-    public String aggiungiCarrello(@RequestParam("idPacchetto") int idPacchetto, @RequestParam("azione") String azione, Model model, HttpServletRequest req) {
+    public String gestioneCarrello(@RequestParam("idPacchetto") int idPacchetto, @RequestParam("azione") String azione, Model model, HttpServletRequest req) {
         Carrello carrello = (Carrello) req.getSession().getAttribute("carrello");
         if (carrello == null) carrello = new Carrello();
         if (azione.equals("aggiungi")) carrello.put(pacchettoService.findById(idPacchetto));
