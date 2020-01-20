@@ -55,3 +55,20 @@ registrazioneTipo.addEventListener("change", e => {
         registrazioneAtleta.style.display = "flex";
     }
 });
+
+window.addEventListener("load", () => {
+    let errore = document.querySelector("#errore")
+    if (errore != undefined) {
+        location.href += `#${errore.parentNode.parentNode.parentNode.id}`;
+        if(errore.dataset.type != undefined) {
+            registrazioneTipo.user.value = errore.dataset.type;
+            if(registrazioneTipo.user.value == "PersonalTrainer") {
+                registrazioneTrainer.style.display = "flex";
+                registrazioneAtleta.style.display = "none";
+            } else if (registrazioneTipo.user.value == "Atleta") {
+                registrazioneTrainer.style.display = "none";
+                registrazioneAtleta.style.display = "flex";
+            }
+        }
+    }
+});

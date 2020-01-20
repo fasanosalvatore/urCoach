@@ -49,7 +49,7 @@
             <a href="#header" class="popup__close">&times;</a>
             <form th:action="@{/login}" method="post" class="popup__form" name="login">
                 <h3>Effettua il login</h3>
-                <p th:if="${errore} != null" th:text="${errore}" style="color: red;"></p>
+                <p th:if="${errore} != null" th:text="${errore}" style="color: red;" id="errore"></p>
                 <label for="usernameL">Username</label>
                 <input type="text" name="usernameL" id="usernameL" onchange="checkEmail(this.value)"
                        placeholder="email@gmail.com">
@@ -74,7 +74,7 @@
             </form>
             <form th:action="@{/registrazioneTrainer}" modelAttribute="trainer" th:object="${trainer}" method="POST" class="popup__form" id="reg_form_trainer" enctype="multipart/form-data">
                 <h3>Effettua la registrazione come trainer</h3>
-                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}" id="errore" data-type="PersonalTrainer">
                     <p><strong>Errori</strong></p>
                     <ul>
                         <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
@@ -104,7 +104,7 @@
                   id="reg_form_atleta"
                   enctype="multipart/form-data">
                 <h3>Effettua la registrazione come atleta</h3>
-                <div style="color: red;" th:if="${#fields.hasErrors('*')}">
+                <div style="color: red;" th:if="${#fields.hasErrors('*')}" id="errore" data-type="Atleta">
                     <p><strong>Errori</strong></p>
                     <ul>
                         <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
@@ -123,7 +123,7 @@
                 <label for="dataNascita">Data di nascita</label>
                 <input type="date" name="dataNascita" id="dataNascita" th:field="*{dataNascita}">
                 <label for="pass">Password</label>
-                <input type="password" name="pass" id="pass" th:field="*{password}" onchange="checkPassReg(this.value)"
+                <input type="password" name="pass" id="pass" th:field="*{password}"
                        placeholder="Più di 6 caratteri tra lettere e numeri">
                 <label for="indF">Indirizzo Fatturazione</label>
                 <input type="text" name="indF" id="indF" th:field="*{indirizzoFatturazione}">
