@@ -48,4 +48,11 @@ class CategoriaServiceImplTest {
         assertEquals(found.getNome(), "Definizione");
         verify(categoriaRepository).findById("Definizione");
     }
+
+    @Test
+    void findByNome_Null() {
+        Categoria found = categoriaService.findByNome("Definizione");
+        assertEquals(null, found);
+        verify(categoriaRepository).findById("Definizione");
+    }
 }

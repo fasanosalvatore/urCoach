@@ -52,6 +52,13 @@ class PersonalTrainerServiceImplTest {
     }
 
     @Test
+    void findByEmail_Null() {
+        PersonalTrainer found = personalTrainerService.findByEmail("salvatore@gmail.com");
+        assertEquals(null, found);
+        verify(personalTrainerRepository).findById("salvatore@gmail.com");
+    }
+
+    @Test
     void findByVerificato() {
         List<PersonalTrainer> trainers = new ArrayList<>();
         PersonalTrainer t1 = new PersonalTrainer();
@@ -78,6 +85,24 @@ class PersonalTrainerServiceImplTest {
         PersonalTrainer found = personalTrainerService.checkUser("salvatore@gmail.com", "Ciao1");
         assertEquals(found.getEmail(), "salvatore@gmail.com");
         assertEquals(found.getPassword(), "Ciao1");
+        verify(personalTrainerRepository).findById("salvatore@gmail.com");
+    }
+
+    @Test
+    void checkUser_Null() {
+        PersonalTrainer found = personalTrainerService.checkUser("salvatore@gmail.com", "Ciao1");
+        assertEquals(null, found);
+        verify(personalTrainerRepository).findById("salvatore@gmail.com");
+    }
+
+    @Test
+    void checkUser_NoPass() {
+        PersonalTrainer pt = new PersonalTrainer();
+        pt.setEmail("salvatore@gmail.com");
+        pt.setPassword("Ciao2");
+        when(personalTrainerRepository.findById("salvatore@gmail.com")).thenReturn(java.util.Optional.of(pt));
+        PersonalTrainer found = personalTrainerService.checkUser("salvatore@gmail.com", "Ciao1");
+        assertEquals(null, found);
         verify(personalTrainerRepository).findById("salvatore@gmail.com");
     }
 

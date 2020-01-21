@@ -122,6 +122,13 @@ class PacchettoServiceImplTest {
     }
 
     @Test
+    void findById_Null() {
+        Pacchetto found = pacchettoService.findById(1);
+        assertEquals(null, found);
+        verify(pacchettoRepository).findById(1);
+    }
+
+    @Test
     void findByNome() {
         List<Pacchetto> pacchetti = new ArrayList<>();
         Pacchetto p1 = new Pacchetto();

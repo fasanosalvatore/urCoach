@@ -50,11 +50,33 @@ class AtletaServiceImplTest {
     }
 
     @Test
+    void findByEmail_Null() {
+        Atleta atleta = atletaService.findByEmail("salvatore@gmail.com");
+        assertEquals(null, atleta);
+        verify(atletaRepository, times(1)).findById("salvatore@gmail.com");
+    }
+
+    @Test
     void checkUser() {
         when(atletaRepository.findById("salvatore@gmail.com")).thenReturn(java.util.Optional.of(new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao1")));
         Atleta atleta = atletaService.checkUser("salvatore@gmail.com", "Ciao1");
         assertEquals(atleta.getEmail(), "salvatore@gmail.com");
         assertEquals(atleta.getPassword(), "Ciao1");
+        verify(atletaRepository, times(1)).findById("salvatore@gmail.com");
+    }
+
+    @Test
+    void checkUser_Null() {
+        Atleta atleta = atletaService.checkUser("salvatore@gmail.com", "Ciao1");
+        assertEquals(null, atleta);
+        verify(atletaRepository, times(1)).findById("salvatore@gmail.com");
+    }
+
+    @Test
+    void checkUser_NoPass() {
+        when(atletaRepository.findById("salvatore@gmail.com")).thenReturn(java.util.Optional.of(new Atleta("salvatore@gmail.com", "Salvatore", "Fasano", "FSNSVT98H02A024F", new Date(Calendar.getInstance().getTime().getTime()), "Via Benederro Cairoli 14", "Ciao2")));
+        Atleta atleta = atletaService.checkUser("salvatore@gmail.com", "Ciao1");
+        assertEquals(null, atleta);
         verify(atletaRepository, times(1)).findById("salvatore@gmail.com");
     }
 
