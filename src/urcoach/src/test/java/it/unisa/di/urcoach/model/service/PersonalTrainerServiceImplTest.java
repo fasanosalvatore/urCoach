@@ -81,6 +81,7 @@ class PersonalTrainerServiceImplTest {
         verify(personalTrainerRepository).findById("salvatore@gmail.com");
     }
 
+
     @Test
     void save() {
         PersonalTrainer pt = new PersonalTrainer();

@@ -20,7 +20,6 @@ import java.util.List;
 public class MainControl {
 
     private final PacchettoService pacchettoService;
-    private final Carrello carrello = new Carrello();
 
     public MainControl(PacchettoService pacchettoService) {
         this.pacchettoService = pacchettoService;
@@ -36,6 +35,7 @@ public class MainControl {
         model.addAttribute("trainer", trainer);
         model.addAttribute("atleta", atleta);
         if(req.getSession().getAttribute("carrello") == null) {
+            Carrello carrello = new Carrello();
             req.getSession().setAttribute("carrello", carrello);
             req.getSession().setAttribute("nCarrello", 0);
         }
